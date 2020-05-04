@@ -1,0 +1,50 @@
+% bör vi kanske ändra ordningen så att vi har abstractet först?  
+\iffalse
+\todo[inline,color=other]{Vanlig utsträckning för denna text är uppmot en sida. Det här är en sammanfattning av de viktigaste delarna i vår text. Essentiellt att få med vilka ideer som ledde till detta projekt. Här behöver vi inte förklara vad saker som domänspecifika språk, reglerteknik och haskell är för nåt. det kommer i själva rapporten. Vi presenterar vårat projekt och resultaten(:/). Vi berättar vilka utvecklingsområden som finns och vilka projekt som skulle kunna bygga vidare på detta.}
+\noindent
+
+%Haskell är ett programmeringsspråk som ofta används för inbäddade domänspecifika språk. Tidigare studier har genomförts som tyder på att domänspecifika språk kan vara användbara för personer med programmeringsvana för att lättare få bättre förståelse för olika koncept och relationer i andra discipliner -- i synnerhet domäner med en matematisk prägel. Kurser i reglerteknik på CTH har ett rykte bland studenter att vara speciellt svåra, och många av dessa kurser har en relativt låg andel studenter som godkänns.
+
+
+Checklista sammandrag (från writing.chalmers.se):
+\begin{itemize}
+\item Inledning: en kortkort bakgrund som också visar vikten av den här studien.
+\item studiens frågeställning eller syfte (problemformulering om sådan finns)
+\item metod – vad det är för typ av studie, hur har resultatet tagits fram? 
+\item resultat – vad studien visar
+\item slutsats – vad ni kommit fram till.  
+\end{itemize}
+\fi
+
+\todo[inline]{\textbf{wip/draft}: förslag på innehållslig uppbyggnad, behöver skrivas bättre}
+\todo[inline, color=other]{writing.chalmers.se säger att ett sammandrag ska innehålla: inledning, frågeställning/syfte, metod, resultat och slutsats.}
+% inledning
+För att förbättra undervisningen inom matematiska ämnen har det föreslagits att tekniker som används inom datavetenskaplig utbildning ska användas. Utveckling av domänspecifika språk, explicita typer och uttryckt distinktion mellan syntax och semantik är några föreslagna taktiker för att förbättra denna inlärning. Ett exempel på hur sådana taktiker applicerats ges av projektet ``Domain-Specific Languages of Mathematics'', vilket både bidragit med en lärobok och en tillhörande kurs på Chalmers Tekniska Högskola. Boken och kursen lär båda ut skapandet av domänspecifika språk och hur matematik kan analyseras från ett datavetenskapligt perspektiv,%Projektet har haft viss framgång och verkar leda till större andel som klarar senare kurser.
+Bland de studenter som godkänts på denna kurs blir en större andel godkända på två senare kurser som haft hög andel underkända. 
+
+% vad vi försöker göra
+Denna rapport presenterar ett supplementärt läromaterial som har utvecklats för reglerteknik
+genom att använda samma tillvägagångasätt. I syfte att lättare hitta problemområden inom området har läromaterialet kopplats til en kurs, ``Reglerteknik'' (ERE103, \cite{ERE103}) på Chalmers Tekniska Högskola. Målgruppen för läromaterialet är därför 
+studenter på Chalmers kandidatprogram för datavetenskap. Haskell valdes som implementationsspråk för de domänspecifika språken av flera anledningar. 
+Studenterna i målgruppen har tidigare läst en kurs i Haskell, vilket innebär att möjlighet finns att knyta an Reglerteknikkunskaperna till de tidigare kunskaperna inom Haskell. % enligt konstruktivismen är det här ett bra sätt att lära, typ
+Dessutom använder DSLsofMath Haskell, vilket gav möjlighet att bygga vidare på de domänspecifika språk som utvecklats där. 
+\todo[color=other]{Fyll i fler användningar, gärna några som handlar mer om Haskell och mindre om att studenterna redan kan det.}
+% jag har en källa på att det är ett populärt språk för edsl, men inte så mkt mer än så. En anledning kan väl kanske vara att Patrik använde det i sitt material...? Ja
+% yeah, och kopplingen till att de kan Haskell från tidigare, tänker jag  
+% säger din källa någonting om att Haskell är bra för edsl (istället för populärt)? 
+%Detta är vår idé: att skapa ett lärmaterial som använder DSLer för att hjälpa datastudenter att förstå reglerteknik. 
+% Vi har kollat på en specifik kurs på Chalmers Tekniska Högskola, ERE103, och strävat efter att koppla läromaterialet till vad studenterna på kursen har svårt för. Vi kommer skriva DSLerna i Haskell då det passar väl för att skrivaembedded DSLer i. Dessutom har alla som läser kursen kunskaper om Haskell, och därmed bör det gå att knyta reglerteknik-kunskaperna till Haskellkunskaperna. 
+
+% metod 
+Först identifierades områden av reglerteknik som studenter har svårt för baserat på kommunikation med examinator i kursen samt som omnämnts i kursutvärderingar för kursen. 
+Därefter valdes områden som passar att beskrivas med domänspecifika språk, varefter domänspecifika språk för de identifierade områdena konstruerades. Ett läromaterial beskrivande dessa domänspecifika språk skrevs sedan. Läromaterial beskriver explicit typerna av ingående matematik samt gör distinktionen mellan syntax och semantik explicit. Dessutom använder läromaterialet ett konstruktivistiskt synsätt för att lära ut. 
+
+%Metoden vi använt är: Identifiera svårigheter baserat på vad föreläsare i ERE103 sagt studenter har svårt för samt som omnämnts i kursutvärdering. Konstruera DSLer för de bitar av reglerteknik som identifierats och som känns rimliga att DSLa. Häng upp det på tidigare kunskap inom Haskell (som didaktiskt trick a la konstruktivism). Använd även explicita typer, syntax/semantik-uppdelning. 
+%Vi har även försökt använda en konstruktivistisk infallsvinkel i skrivandet
+
+% resultat
+Projektet resulterade i läromaterialet 
+``Learn you a control theory for great good''\todo[color=lessurgent]{Fyll i rätt namn när vi har ett}, vilket kan hittas på:  ... 
+
+% slutsats 
+Reglerteknik innehåller domäner som passar att bli beskrivna med domänspecifika språk. Möjliga framtida projekt kan vara att fortsätta arbeta på läromaterialet eller de domänspecifika språken, alternativt att utveckla liknande läromaterial och domänspecifika språk för andra ämnen. Ett annat möjligt projekt är att utvärdera läromaterialet i en studie. 

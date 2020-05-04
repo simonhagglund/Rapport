@@ -1,0 +1,182 @@
+\documentclass%[final]%removes todos
+{article}
+\usepackage[left=4.5cm,top=4.5cm,right=4.5cm,nofoot]{geometry}% Distance to edges, change so it looks good and we get a good number of pages
+\setlength{\footskip}{40pt}
+\usepackage[dvipsnames]{xcolor}     % some nice colors
+\usepackage[swedish, english]{babel}% Tells latex that we write in english, so it follows english rules. Swedish for sammandrag.
+\usepackage[utf8]{inputenc}         % MISSING
+\usepackage{graphicx}               % more options for includegraphics, not sure it's currently necessary 
+\usepackage{float}                  % MISSING
+\usepackage{comment}                % MISSING
+\usepackage[style=ieee
+  , backend=biber]{biblatex}        % reference manager 
+\usepackage{array, booktabs}        % prettier tables, I think?
+\usepackage[TS1,T1]{fontenc}        % MISSING
+\usepackage[obeyFinal]{todonotes}   % inline/margin todo-labels
+\usepackage{ifthen}                 % can't find what this does? 
+\usepackage{tocloft}                % related to table of contents somehow?
+\usepackage{hyperref}               % hyperlinks in text
+\usepackage{minted}                 % Highlights code.
+\usepackage{bashful}                % dynamic word count
+
+\usepackage{subfig}                 % Adds subfigures in figures.
+\usepackage{caption}
+\usepackage{csquotes}               % supposed to ensure quotes are right depending on context - csquotes = contex sensitive quotes 
+\usepackage[normalem]{ulem}         % strikethrough; normalem fixes the underlined references
+\usepackage{subfiles}               % Ladda denna sist.
+\usepackage{amsmath}
+\usepackage{pdfpages} %för att bifoga produkten
+
+\usepackage[toc]{glossaries}%för ordlista
+\makeglossaries
+\loadglsentries{ordlista.tex}
+
+
+\bash
+texcount -sum -1 abstract.tex
+\END
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    citecolor=red,% open for suggestions, I just hurt my eyes on the bright green
+}
+
+\DeclareCaptionFont{blue}{\color{LightSteelBlue3}}
+\addbibresource{refs.bib}
+\setlength{\marginparwidth}{4.3cm}
+\newcommand{\foo}{\color{LightSteelBlue3}\makebox[0pt]{\textbullet}\hskip-0.5pt\vrule width 1pt\hspace{\labelsep}}
+
+% ToC depth
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+\newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\vspace{2mm}\\}
+
+
+% Adds choice for hiding stuff when we are in a writing phase. 
+\newboolean{DELOPMENT}
+\setboolean{DELOPMENT}{false}   
+
+% quick color names for ease of remembering
+\colorlet{urgent}{red}
+\colorlet{fixme}{orange}
+\colorlet{lessurgent}{blue!20} 
+\colorlet{other}{yellow!30} 
+
+
+% some commands for semantic tagging
+\newcommand{\cmd}[1]{\mintinline{#1}} % to typeset commands 
+\newcommand{\course}[3]{``#1'' (``#2'' #3 \cite{#3})} % arguments, in order: english name, swedish name, course code
+
+
+% Educational Language of Control Theory?
+% Teaching Control?
+% Domain Specific Education, Control Edition?
+% Learning the Language of Control?
+% Learning Material for Control Theory with Domain-Specific Languages?
+% Demystifying syntax and semantics of control theory.  
+% Controlling Education through Domain Specific Languages 
+\title{Demystifying the Syntax and Semantics of Control Theory
+ \vspace*{5.5mm}
+ % (Using Domain-specific Languages?)
+ \\ {\Large Developing course material using \\ Domain-Specific Languages} 
+ \vspace*{85mm}
+ }
+  
+\author{
+
+    Filip Nylander \and
+    \vspace*{0.001pt}
+    Jakob Fihlman \and 
+    Christian Josefson \and 
+    Elin Ohlman \and 
+    Tommy Räjert \and 
+    Simon Hägglund
+    }
+\bigskip
+\date{\vspace*{5mm} Spring - 2020} % unless anyone comes up with anything better 
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+
+\setlength{\marginparwidth}{2.6cm} % fixes todonotes margin problem
+\ifDELOPMENT
+Proposed colour coding for todo notes. TR
+\todo[color=gray!10]{Colour coding:}
+\setlength{\marginparwidth}{4.3cm}
+\todo[color=urgent]{Urgent comments}
+\todo[color=fixme]{Fix-me comments}
+\todo[color=lessurgent]{Less urgent comments}
+\todo[color=other]{Other highlights}
+\fi
+
+\newpage
+
+\begin{abstract}
+    \subfile{abstract} 
+\end{abstract}
+\begin{otherlanguage}{swedish} 
+    \begin{abstract}
+     \subfile{sammandrag} 
+    \end{abstract}
+\end{otherlanguage} 
+    
+\iffalse % to save it
+\centerline{\bf Abstract}
+    ~ \\ \noindent
+    \subfile{abstract}~\\~\\~\\
+\centerline{\bf Sammandrag}
+    ~ \\ \noindent
+    \subfile{sammandrag}~\\ ~
+\fi 
+
+
+
+\newpage
+\renewcommand*\contentsname{Table of Contents}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+\tableofcontents
+\newpage
+\setcounter{page}{1}
+\pagenumbering{Roman}
+\setcounter{page}{1}
+\pagenumbering{arabic} 
+
+\printglossary
+\newpage
+\subfile{introduction}
+\newpage
+\input{Theory/main}
+\newpage
+\subfile{Didactics}
+\newpage
+\subfile{process}
+\newpage
+\subfile{Produkt}
+\newpage
+\subfile{discussion}
+\newpage
+\subfile{conclusion}
+
+\newpage
+\printbibliography
+\newpage
+\appendix
+%\listoffigures
+%\listoftables
+\section{Learning material}\label{app_learning_material}
+Here follows a snapshot as of \textbf{date} of the learning material that was developed during this project. Please note that this is a work still in progress and to see an up to date version please visit \url{https://github.com/simonhagglund/DATX02-dsl}.
+
+
+ladda ner aktuell version och byt rad (jobbitgt att ladda hela varje gång) skriv även ned datum här och i sec:learning material.
+\includepdf[page={1,2,3}]{produkt.pdf}
+
+
+
+\end{document}

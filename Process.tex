@@ -1,0 +1,93 @@
+\section{Process}\label{sec:process}
+\iffalse
+The first step in our process was to set apart the first few weeks for study purposes. The team believed this would help minimise errors later in the process as well as improve flow. In addition, contact was established with teachers in order to pin down which parts of the course students struggled with the most. This would allow the team to narrow the scope of the project and ensure the most critical areas were adequately covered.
+
+The next step was to create the DSLs themselves. To this end, the critical areas of study were split apart, and responsibility for each was distributed across the team. Each team member was given free reign to design their DSLs however they believed would offer the most effective explanation.
+
+The third step was to start writing the text itself. Each team member was tasked with describing the DSLs they had created in accordance with the requirements described in Task(3.2), above. Though only a single person was responsible for each DSL and associated text, the team was heavily encouraged to employ pair programming to complete their tasks. \LaTeX was used as a repository for the text, under the pretext that it would aid in converting the text to a website at a later date, if time allowed for it.
+
+
+
+
+In a perfect world, there would be opportunity to conduct a study on how the product facilitates learning. However, due to time constraints and the fact that there is no instance of the course in question concurrent to development. One proposed solution -- inspired by ``TSS with DSLs'' -- was to ask previous students of the course to read the material and fill in a survey. 
+    
+
+Finally, in order to evaluate the team's work and whether the goals are met, the material should be tested on a group of students. Unfortunately, there will be no concurrent courses held which can be used to test the learning material. One possible solution to this---inspired by ``TSS with DSLs''---is to ask previous students of the course to test the learning materials and fill in a survey. 
+To make this evaluation more thorough the students could be split up into a test group and a control group who would spend an equal amount of effort on the same concepts. The former using our material and the latter using the material offered in the course, exclusively. However, it might not be possible to assemble enough participants to have the separate groups be large enough for this to be worth doing. 
+\fi
+
+
+\subsection{Product Specification}
+%%In order to construct a learning material for control theory, the members of this project has to themselves understand the subject. Thus, a lot of focus has been put towards this aspect of the project. However, the central part of this project has to revolve around finding where domain-specific languages may be used in the domain and implement these. The details of this process is discussed in section \ref{sec:process}.  %% This is Process, move or remove
+
+%\todo{- Lista ut hur det funkar DSL-mässigt 
+% - Hur man beskriver DSLer för folk
+% - Testa på studenter.} 
+% Svar: Hur vi uttrycker oss, och vad vi menar. Syntax och semantik.
+\iffalse
+produkt - 
+kontinuerligt rapportera processen
+kontakt med examinator
+be studenter som gått/går kursen att ge respons
+skriva en "bok" i latex
+ev göra om boken till en hemsida
+
+hur ska vi testa det?
+prata med folk somh har läst kursen innan 
+
+rapport - 
+
+
+Känns som vi bör diskutera metod mer på nästa möte.
+\fi
+
+\iffalse
+Metod/Genomförande
+Hur gruppen tänkt sig att genomföra arbetet Olika deluppgifter/delstudier kräver ofta separata metodavsnitt.
+
+Metodbeskrivningen förankras vanligen i metodlitteratur. 
+
+Detta är typiskt ett avsnitt som uppdateras under arbetets gång
+\fi
+
+
+
+
+The core goal of this project was to create supplementary learning material for a course in Control Theory (course code ERE103 \cite{ERE103}). Meaning, the project is not meant to replace any existing material. Rather, it is meant to provide a perspective more familiar to Computer Science students, in order to ease the transition between the subjects.
+
+
+
+%% A method with a similar purpose has already been made in the form of DSLsofMath \cite{DAT326}, which sought to bridge the gap between programming and mathematics by rephrasing math as a custom built programming language; a so-called ''Domain-Specific Language'' (DSL).% is this excessive?  %% This is Background, move or remove
+As mentioned in the introduction, the project aims to emulate the success of DSLsofMath \cite{DAT326} by creating 'DSLs of Control Theory' using Haskell as a basis. The choice of Haskell is due to it being Chalmers' and Gothenburg University's functional programming language of choice, making it the functional language that students are most likely to already be familiar with.
+
+In addition and perhaps more importantly, a text was written to explain the languages and their uses, completing the bridge between the subjects.
+
+Further, as a learning tool, the correctness and professionality of the text is secondary to its educational value. The text aims to be light, digestible, and `fun'. Integration of common teaching techniques, such as examples and exercises, were encouraged. We tried to keep jargon to a minimum, and any required knowledge not covered in the text were given referrals to other sources.
+
+%% Projects in this style have happened at least twice in the past \cite{fysikarbete,tssarbete}. Thus, it is also likely to happen a fourth time. With this in mind, there was a secondary goal of ensuring as good documentation of the process and methods used as possible in order to aid future groups doing similar projects. % Is this background?
+
+A secondary goal, subject to time restraints, was to turn the learning material into a website. As websites can be more interactive than just text, turning the learning material into a website can enable the exercises to take answers as input. This can activate the student and help further learning. 
+
+\subsection{Delimitations}\label{sec:delimitation}
+Control Theory is a large subject. As such, trying to create a comprehensive guide to the entire subject would risk limiting the quality of each individual concept. Therefore, an early part of the project was to analyse which concepts of Control Theory to focus the team's efforts on. %nice
+
+
+Using feedback from staff, records of prior exams, as well as the team's own experiences of the subject, subject areas were established and analysed. The analysis included, in a rough order of importance, which subjects students frequently struggled with, which concepts could be effectively described using DSLs, and which other didactic techniques could be employed.
+
+Ultimately, five subject areas were chosen for further work:
+\begin{itemize}
+    \item Prerequisites
+    \item Basic Control Theory
+    \item Laplace Transform
+    \item Transfer Functions
+    \item Nyqvists theorem of stability
+\end{itemize}
+
+Prerequisites and Basic Control Theory are both rundowns of multiple smaller subjects that should provide little issue but are nontheless important to bring up. Laplace, Transfer Functions and Nyqvist are larger and more difficult subjects that were deemed worthy of their own dedicated sections.
+
+There was also a plan to include a section covering Bode diagrams. However, due to time constraints, it had to be cut.
+
+TODO: Subsection about testing(if it happens)
+
+%In order to conform to the project size, a selection of subject areas had to be done. Subject areas were chosen based on (in a rough order of priority) which concepts students frequently struggle with, which concepts can be effectively and accurately described using DSLs\cite{DAT326}, and which concepts can be effectively visualised and/or illustrated. 
+%The reasoning behind this priority was that the most important part were to find topics that, if taught well, would help students understand what they otherwise would not, and the chosen topics should be fit to teach using DSLs. % add something about why visualisation 

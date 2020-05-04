@@ -1,0 +1,135 @@
+\section{Discussion}
+% skriva om haskell,  vilka alternativ som finns och om det finns nåt som kanske hade lämpat sig bättre
+
+% koppla mycket till didaktikdelen, läsa igenom och kolla att allt hänger ihop. t.ex skriva att vi applicerar den kunskapen om didaktik när vi använder haskell för att förklara regler.
+
+% write something about why we have the complex numbers part and connect it to the theory where we say that lacking prerequisites are a problem
+
+%english vs swedish
+
+%prata lite om förkunskaper
+
+
+The use of domain specific languages and Haskell to teach other subjects is, as previously have discussed (see section \ref{intro}), an interesting novel approach that has proven itself useful in various mathematical domains for a number of reasons. Here we will evaluate our project and discuss what we have learned. 
+
+\todo[inline,color=other]{This section is by nature heavy WiP: full discussion cannot be written until conclusion of project.}
+
+
+
+\subsection{Evaluation of the Learning Material}
+\todo[inline]{Needed: some introductory text to the section. (Bullet points below are only temporary).}
+\begin{itemize}
+% \item This learning material have not been evaluated in any way by anyone outside the project group. This means we have no objective way to evaluate the material's quality. What we can discuss is what we feel are the largest areas that can be improved upon. : passive learning material, we need the project to be more finished before we use this part
+
+    \item \sout{The choice of haskell: jämföra både hur Haskell stödjer den matematiska aspekten och hur Haskell artar sig som värd för inbäddade språk - There are a lot of Haskell specific syntax that can make it difficult if you have not used Haskell recently. Perhaps you could even use pseudo code, you lose the ability to actually run the program but it would make for a much more readable text that does not require any knowledge of a specific programming language. }
+
+
+
+\item \sout{The choice of English as the language of the course material}: 
+
+
+\item \sout{Does not cover the entire course (choice of subjects?)}
+
+\item The way the material is presented
+
+\item Discuss for some particular areas why we did not include them in the material. Bode (not mentioned before this point (I think)); contour integral
+\end{itemize}
+
+\subsubsection{The Use of Haskell as a Host Language}
+
+Of the various ways of implementing a DSL, embedding it in a host language, as discussed, requires some of the least effort and is easy to extend and modify. Functional languages are popular as host languages as they are often very expressive and flexible \cite{techniquesforedsls}. Operators are often overloadable which opens up the possibilities for making even more tailored DSLs---making implementation of DSLs for many mathematical domains especially natural. Haskell is one such language, that, as mentioned in \ref{sec:edsl}, has become popular for making embedded DSLs \cite{techniquesforedsls}, which is why it was deemed suitable for the project. 
+
+One possible drawback to embedding DSLs in Haskell for mathematical domains is the strictly one-dimensional nature of such code. Mathematical notation often utilises vertical alignment to convey information and make the syntax easily readable. The notebook-style application Wolfram Mathematica allows for this kind of two-dimensional syntax input via the Wolfram Language. This kind of input, although very useful for its purposes, is was not deemed as suitable for this project as the syntax is much closer to the original mathematical syntax, making it less familiar to those comfortable with regular program code. In order to utilise this familiarity we chose to use Haskell to tailor the DSLs to computer science students. 
+
+Using Haskell---or any other programming language---as a host language for DSLs has a risk of alienating a significant portion of the target audience to some extent, as they may not be very familiar with the language. It could thus arguably be a good idea to be restrictive with language-specific implementation, or even use pseudo-code. As has been done in previous work \textbf{[ref needed]}, Haskell's type checker could be relied on without specific implementations of functions, and by these means still serve as effective learning material. Arguably, there could still be beneficial for those familiar with the language used to study the implementation to some extent, and those unfamiliar need not direct their attention to implementation details. The learning material developed relies on this latter view, which is essential to disclose to the reader so that they have appropriate expectations and use the material in an effective way.
+
+As a secondary kind of DSL, a DSL native to control theory, block diagrams, have been used. These are meant to serve as a comfortable middle-ground between control theory and the Haskell DSLs presented in the learning material. Discussing the types of the components involved in the diagrams can provide a more rigorous understanding of the diagrams' relation to LTI systems, transfer functions, and impulse response, among other things. Relating these diagrams to the Haskell DSLs presented makes for a more clear connection between the different representations. 
+
+
+
+\subsubsection{Language of Instruction}
+The choice of language to present the material in was not entirely trivial, as the course that the material specifically targets is held exclusively in Swedish \textbf{[ref needed]}. The students in question are assumed to have an English language proficiency adequate to effectively use the material. However, since a lot of terminology differs between the languages, the material risks becoming less accessible to the attendants of that course, and terminology might get confused. On the other hand, presenting the topic in English opens up for a larger audience that may access the learning material; both for learners of control theory and for those who wish to conduct further research on the matter. 
+
+\subsubsection{Choice of Content}
+For the scope of this project, it is not possible to cover all of the course content of the targeted course. Some essential parts had to be be prioritised over others, some areas are more central for the understanding of control theory and fundamental for further learning than others, and some areas are not as well suited for programmatic DSLs as others. 
+
+Transfer functions are used in most of control theory and the course has a clear focus on linear time-invariant systems, so these parts were deemed important and take up a significant part of the material.
+
+\subsubsubsection{\todo[color=other]{Reduce number of levels}Prerequisite Knowledge Primer}
+A significant part of the learning material is taken up by content that is related to the prerequisite knowledge of the course, and one might argue that this put the focus in the material on what is not of the subject at hand.
+
+As mentioned in section \ref{backgroundERE}, many students do not have enough prerequisite knowledge to take full advantage of the course. For this reason, an introductory part was included to in part serve as aid for some of this missing or unpractised knowledge. As to exactly what prerequisites this section would best address, there are many possible answers. The course plan \cite{ERE103} for the course lists complex numbers, linear algebra, Taylor series, ordinary differential equations, the Laplace transform, and knowledge of basic relations from physics, as prerequisites---any of which would be good candidates for this section. Additional concepts could also be argued are lacking in the students' repertoire of knowledge, such as line integrals which are only briefly discussed in the course before applying them to Nyquist plots. 
+
+Of all of these areas complex numbers, integrals, and Laplace transforms were chosen to be included in the material. Complex numbers are arguably, for many students, probably of the least concern, since we can assume they have this knowledge from their secondary education. However, the section on complex numbers in the learning material has an additional purpose of serving as a refresher on Haskell syntax and familiarising the reader with the DSL approach of thinking about mathematical domains---as previously mentioned in \textbf{[where?]}---and therefore would benefit from describing an area already familiar to the reader. Integrals are presumably also rather familiar to the intended reader, whose section in the learning material has a similar purpose to that of the section on complex numbers. What is different from this section, however, is how the respective subjects are traditionally taught in relation to their types. The type of the integration operation is a higher-order type, which is generally not taught when learning about integrals---giving a less rigorous understanding of the operation \textbf{[ref]}. As the understanding of types is central to this DSL approach of learning, integrals were deemed important that they be included in the introductory part of the learning material. Furthermore, the integral may be seen as very essential to subsequent parts in the learning material. 
+
+Lastly among the prerequisites, the Laplace transform was explored in the learning material. This section comes somewhere between introductory content and main content of the subject, as the Laplace transform is quite heavily and directly used in many of the areas addressed in the course \textbf{[ref?]}. 
+
+\subsubsubsection{Core Course Subjects}
+\todo[inline,color=other]{Write about the more central parts included, and if we should've included more.}
+
+\subsubsubsection{Exercises}
+\todo[inline,color=other]{Write about the exercises included.}
+%OLD: Another area which could have been better suited for this section is integrals, as these are presumably quite familiar to the intended reader, but
+
+\iffalse %detta ska nog inte vara med alls men tar inte bort än
+\subsection{evaluation of group structure and project planning}
+\begin{itemize}
+\item Though not specifically tied to our project, one of our goals was to document our process to aid similar projects in the future. Some things pertaining to general project planning that we 
+
+
+
+\item Slow start
+
+\item A few of our group members were unfamiliar with control theory at the start of the project. One of the reasons we chose this course was that it is a difficult course that many students struggle with. But that of course also applies to us so we had to spend a lot of time on understanding control theory ourselves, even the students who had already completed the course. A nice side benefit was that the members of the group got a better understanding for control theory but it also meant we could get less far with the product itself. In retrospective it may have been wiser to instead have chosen a easier course as we may have been better able to present a complete material. On the other hand, in an easier course the material perhaps would not be as useful.
+\end{itemize}
+\fi
+\subsection{Future Projects}
+% Itemize ideas?
+There are two main ideas for projects that can build on our work. The first would be a project that evaluates our learning material. This could be done by testing it on a group of students and evaluating whether it improves their understanding of the subject and/or improves their performance on the exam. 
+
+The other project would simply be a continuation of this project's material. As we have mentioned before, our learning material is not complete in relation to the targeted course's scope or the scope of control theory as a whole, and there are several areas of this project's learning material that could be improved. As such, a similar project could be performed where the ground work has already been laid, and could therefore be much further developed than this project has. Such a project could explore areas of control theory that was not covered by this project, or add more material to the existing parts such as exercises for the reader to do. 
+
+\subsection{Ethics}
+There are some ethical considerations concerning this project. %One of these concerns that ascertaining the success of the project warrants testing the material on students. This means that it is important to consider the integrity of said testing students. Collected Answers should and will be anonymous. Partly this will be accomplished by testing this on larger groups, maybe even on entire classes to ensure that the individual students remain anonymous. The intention is to collect the data by having the students fill out an anonymous survey.
+One of which concerns the fact that this project does not empirically establish the effectiveness of the learning material, but is instead entirely reliant on the limited theory of didactics explored in this report. Presenting the material as an effective alternative approach may not be ethical in case it is not as useful to this group of students as presumed, or even make the subject more confusing. Therefore, the learning material should arguably be clearly presented as untested and/or experimental.
+
+%The goal is to develop learning material and therefore it is important that it actually is helping the students understand the topic better. Not, for example, just make it easier to pass the exam without understanding the material. 
+Furthermore, as the material developed is meant to help students understand the subject better, although not that likely, the risk for the material to, for instance, make it easier to pass the exam without understanding the material, should be considered.
+%This will probably not be a problem because the type of material intended is only meant to make things more intuitive, but it is important to keep in mind.
+This could be an issue if the learning material focuses too much on the programmatic side without emphasising the concepts and physical aspects of control theory. It may also be important that it be emphasised the learning material cannot replace any part of the targeted---or any other---course, and only exists as supplementary material.
+
+It is also important that the material is available to everyone---not only a select few. This is assured by making all of the work available on GitHub. The aim is also that the course material will be published on the course website, which means it would be easily available for all students in the course.
+
+Control systems are used everywhere, even in military industry whether it be defensive or offensive technologies. The nature of these industries ensures that people working in them need to take a stand on the ethical aspects of these professions. Concerning this topic, a section discussing the ethics of control systems and possible dispositions knowledge in these areas could put us in will be included in the project.
+
+%%A clear ethical aspect of learning about control systems i  
+%%Another ethical dilemma is the use of control systems is the use of them 
+
+%wrong
+\iffalse
+Besides the utility of the project, it is not likely that this project would harm or impact society in any negative way as such. As stated earlier the content is very specifically to demystify mathematics and concepts therein for students of control theory. 
+\fi
+
+On a different note there are tools that are practical and helpful while construction constructs of control theory, of which of Matlab - Control System Toolbox \cite{matlab_control} seems most wildly used. However Matlab is high level and offers close to no help with mathematical intuition required to be able to understand and solve common control theory problems, however this is the focus of this project which increases the utility of this project. 
+
+\iffalse 
+\subsection{ideas about content}
+
+\begin{itemize}
+    \item Here we should write about what could have been done better.
+    
+    -planning, strict structure vs agility, early study section vs continuous learning \& iterative design
+    
+    -start small, not try to tackle everything immediately 
+    
+
+
+\item Ethics goes here and it is important that it is a natural part of the text. We can use a lot of inspiration from the planeringsrapport text but i think it will be good to start fresh to get an improved structure and make it more natural.
+
+-Availability:why we wanted the material to be in english, the importance of it being available on github. 
+
+- consideration of how it can impact students learning, will they learn it the ``wrong'' way(use haskell on the exam? will it actually contribute to a deeper understanding?. Here we will write what our intentions with the material was and why we think it is unlikely that it will be used the wrong way
+
+-we said we would write a part about the ethics of control systems in the material. If we do that mention that we did it and why we did it.
+\end{itemize}
+\fi 

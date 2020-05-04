@@ -1,0 +1,96 @@
+\section{Introduction}\label{intro}
+\iffalse 
+\todo[inline,color=other]{Presentera på ett intresseväckande sätt ämnet och tidigare forskning (både allmän pedagogisk forskning och sen även den specifika med patriks och de tidigare kandidatarbetena), bra att väva in källor här. Presentera vår ide och varför den behövs/är intressant. (Både kursspesifikt för eleverna som läser kursen men även mer allmänt att den är intressant för folk som är intresserade av pedagogik/didaktik aspekten och folk som vill göra liknande projekt. (Detta ger relevans till projektet och motiverar även läsaren att läsa vidare. (Osannolik att läsaren är en användare av materialet)). Presentera i detalj vad vår produkt är (skriva mer om reglerteknik specifikt (kan ta delar från 1.1 men inte allt, blir för långt) och beskriva vad rapporten kommer ta upp.}
+\fi
+%Tänkter att denna text är max två sidor.
+%Delar upp i subsections för att det ska vara lättare att skriva. Tänker mig egentligen att det inte ska vara några
+
+
+\gls{dsl}
+In the case of subjects which require a high mathematical ability, a student might have trouble with the underlying mathematics instead of the subject matter. For example, 
+while studying electromagnetic theory, integrals of three variables are likely to show up. Not being able to calculate them might hinder the student from further understanding in the subject. 
+In this text we will focus on the difficulties for computer science students when learning control theory and possible solutions to the problem. %Computer science students have the advantage of being very comfortable with programming which can also be used in non-programming courses.
+
+It has been argued that the computer science perspective could be beneficial for mathematics education \cite{wells1995communicating}. There are many ideas in that text on how to improve mathematical education, but two ideas in particular are worth mentioning: writing out the types of introduced objects and being explicit about the distinction between syntax and semantics. As an example of the distinction between syntax and semantics, Wells discusses the difference between $2/7$ and $2/(4+3)$. Semantically they are identical, but syntactically they are different. In short, Wells argues that typically there are differences between teachers and students; teachers see the mathematical objects as existing outside of the representations while students see the representation as the object \cite{wells1995communicating}. Wells argues that confusions arising from that distinction might be avoided the students have words for it.  
+
+There have been attempts to put in practice the idea of teaching mathematics (and physics) using computer scientific tools, for example: 
+Functional Differential Geometry \cite{sussman2013} implements differential geometry in the programming language Scheme;
+A Logical Guide to Discrete Math \cite{gries2013logical} is written from the perspective of two programming methodologists; 
+Learn Quantum Mechanics with Haskell \cite{quantumwithhaskell} describes how Haskell can be used to model quantum mechanics; and Learn Physics with Haskell \cite{physicswithhaskell} describes a similar approach to teaching mechanics and electromagnetic theory in a course at Lebanon Valley College. % Jag tror jag kan hitta fler exempel, men detta räcker kanske?
+% Rule of three says it's plenty :) /J
+
+One attempt has been a special inspiration: Domain-specific languages of Mathematics (DSLsofMath) which is a project aiming to both analyse mathematics from a computer science perspective and to teach how to construct domain-specific languages in Haskell \cite[p.~6]{dslsofmath}. A domain-specific language (often shortened DSL) is ``a computer programming language of limited expressiveness focused on a particular domain'' \cite[p.~27]{fowler_parsons_2010}.
+There are multitudes of domains one can implement DSLs for, and DSLsofMath aims to show how different areas of mathematics such as group theory and logic can be seen as such domains \cite[p.~5--6]{dslsofmath}.
+
+DSLsofMath has resulted in a course at Chalmers University of Technology, \course{Domain-specific Languages of Math}{Matematikens Domänspecifika språk}{DAT326}. Passing the course has some positive correlation with passing later courses that many students struggle with \cite[p.~85]{Jansson_2019}. % one of the courses struggled with is about Control theory, maybe? 
+
+
+Control theory is a subject which might benefit from being taught using DSLs. Control theory is, in short, the study of systems and their control. 
+A rudimentary example of a system is a shower, where the temperature of the water is controlled by turning the shower knob. This example involves human input, but in many cases we would prefer to not require human input. Control theory is used to automate the control of systems using different mathematical analyses. Thus previously mentioned problems with mathematics might hinder a student from learning Control theory. One way to solve this could be to use an approach similar to DSLsofMath, using DSLs to teach Control theory.
+
+As a concrete example of the difficulties in teaching Control theory: at Chalmers University of Technology, third-year students at the Computer Science programme take an introductory course in Control theory. The course, \course{Control theory}{Reglerteknik}{ERE103} is a course students typically struggle with \cite[p.~85]{Jansson_2019}. As it is an obligatory course it can represent a significant stumbling block, and efforts should be made to help. 
+
+Our project has been to create a supplementary learning material for Control theory following the approach used in DSLsofMath. The learning material describes the process of creating domain-specific languages for Control theory. Some of the tools required to successfully study Control theory, complex numbers and the Laplace transform, are described using their own DSLs, as well as some parts of Control theory, for example transfer functions. Which parts to include in the learning material were identified in two ways: asking the examining teacher in the course and reading the course evaluation minutes. 
+
+Other projects building on DSLsofMath have been done. One \cite{tssarbete} explored the uses of DSLs to teach (parts of) the course \course{Transforms, Signals and Systems}{Transformer, Signaler och System}{SSY080}. Some of the content taught acts as prerequisites for Control theory. Another one \cite{fysikarbete} explored DSLs for physics (more specifically classical mechanics), and resulted in the supplementary learning material ``Learn You A Physics For Great Good!'' (https://dslsofmath.github.io/BScProj2018/index.html) for the course \course{Physics for engineers}{Fysik för ingenjörer}{TIF085}.
+Since the first of these handles some of the tools required for Control theory, there will be overlap between the material described therein and our learning material. 
+\todo[color=lessurgent]{Do we want to call these ``TSS with DSls'' and ``Physics with DSLs''?}
+
+
+% \vspace{6pt}
+% \todo[color=other,inline]{All introduktion efter detta är gammal och är kvar som inspiration}
+
+\iffalse
+Some kind of idea:
+\begin{itemize}
+    \item Need much math for some science
+    \item Math is hard
+    \item Some argue computer science perspective helps 
+    \item Has been done in discrete math, DSLsofMath tries to do this % försöka få in liknade saker från andra skolor/andra ämnen 
+    \item Use DSLs to look at math
+    \item Control theory is a subject which is heavy with math
+    \item Explain a little about control theory
+    \item Control theory can probably benefit from this
+    \item Has been done (TSS with DSLs and Physics with DSLs)
+    \item We will try to verify using some didactic methods, see didactics section
+    \item Our product is this!
+\end{itemize}
+
+There have been previous projects where the approach of using DSLs has been used: one of these projects, which resulted in a BSc thesis \cite{tssarbete}, explored DSLs' uses in the course ``Transforms, Signals and Systems'' (Transformer, signaler och system SSY080 \cite{SSY080}). In this report, this project will be referred to as ``TSS with DSLs.''
+Another BSc thesis \cite{fysikarbete} examined the course ``Physics for Engineers'' (Fysik för ingenjörer TIF085 \cite{TIF085}). This will be referred to as ``Physics with DSLs.''
+
+The same methods used in the aforementioned projects and course should be useful for providing supplemental learning material for the Control Theory course as well. Especially so for students with a background in functional programming. The work carried out in ``TSS with DSLs'' will be extra useful since the courses SSY080 and ERE103 share many common traits.
+
+
+
+
+
+\subsection{Previous research}
+Similar problems have been identified with the course ``Transforms, Signals and Systems'' (problems that the learning material ``TSS with DSLs'' \cite{tssarbete} tried to rectify), which is a prerequisite for the previously mentioned course. Overlap with said learning material will mostly be avoided, with one exception: in order to give an introduction to the DSLs used, some basic concepts of complex numbers will be included. 
+
+Difficult concepts can be hard to grasp, especially in new and unfamiliar areas. To help bridge the gap you can approach the new material with familiar strategies. For computer science students this is logically done through programming. This method has been implemented in the course “DSLofMath” (DAT326) \cite{DAT326}. The purpose of the course is to ``present classical mathematical topics from a computing science perspective...'' \cite{DAT326}. This is done by implementing mathematical concepts into Domain-Specific Languages (often shortened DSLs). A DSL is a specialised language for a particular domain, in contrast to general purpose languages which are generalised across domains. There are a multitude of DSLs in the world, of which HTML, \LaTeX, and Matlab \cite{mernik_heering_sloane_2005} might be most renowned.
+
+% en paragraf om didaktik här
+
+\subsection{The product/ The project}
+
+%Beskrivning av produkten för att läsaren ska förstå vad vi snackar om
+
+\subsubsection{Problem}
+
+
+
+
+
+\subsubsection{Purpose}\label{sec:purpose} 
+The purpose of this project is to develop a supplementary learning material for courses in Control Theory. It will have a focused on, but not be limited to, the (for Chalmers' third-year computer science students) mandatory control theory course Reglerteknik (ERE103) \cite{ERE103}.  The intention is to develop material that is easily accessible by the students in order for students to have an easier time to learn the more demanding and difficult parts of the subject. 
+
+Because this project has the potential to be repeated for another application domain, the report should also be very precise with the description of the process and the problems that have arisen throughout the project.
+\fi
+
+\iffalse
+Syfte
+Specificerar vad rapporten är tänkt att resultera i och vilken typ av resultat som kommer att uppnås. 
+Lämpligt att ha ett generellt syfte, kanske några få specificerade delsyften. 
+I problemanalysen bryts syftet ner i mer detaljerade delsyften.
+\fi
