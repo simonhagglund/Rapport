@@ -1,2 +1,4 @@
-data DSL a = Id 
-  | (:+:) (DSL a) (DSL a)
+data DSL x = Unit 
+ | Const x
+ | (:+:) (DSL x) (DSL x)
+%%

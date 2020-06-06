@@ -1,11 +1,24 @@
-%TC:ignore
-\todo[inline]{Not a priority}
-\todo[inline]{Currently \bashStdout~words in abstract.}
-\todo[inline,color=other]{The sammandrag text but in english, will be translated when sammandrag is finished.}
-%TC:endignore
 \noindent
-Haskell is a language that is popular to use for embedded domain-specific languages. 
-As has been previously investigated, domain-specific languages can benefit those with background knowledge in programming to understand concepts and relations in other disciplines---specifically those related to mathematical domains.
-Courses on control theory at CTH have a reputation of being notoriously difficult for students, and many of these courses have a low pass rate. 
-%This project investigates how to use (embedded) domain-specific languages with Haskell in creating supplementary course material for a select few essential areas. 
-This project aims to produce supplementary learning material for a select few essential areas in control theory using embedded domain-specific languages. 
+Different disciplines use varying approaches to teaching, which may lead to difficulties when learning subjects from other disciplines. Previous research has proposed using teaching techniques from computer science in order to improve the learning for computer science students in mathematical domains. Some of these techniques include the implementation and usage of domain-specific languages, the study of types, and using an explicit distinction between syntax and semantics. 
+For example, the project ``Domain-Specific Languages of Mathematics'' (``DSLsofMath'') has applied these techniques, resulting in both a course at Chalmers University of Technology and accompanying course material. In the course, domain-specific languages are implemented for mathematical concepts, and mathematics is analysed from a computer science perspective. Passing the course has shown positive correlation with passing later courses\begin{newtext}, one of which is Control Theory, \end{newtext} that many students struggle with. 
+
+This report presents the learning material ``Domain-specific languages of Control Theory -- A supplementary learning material for ERE103''. It is specifically targeted towards the Chalmers control theory course ERE103 and takes inspiration from the DSLsofMath project. Course surveys and communication with the examiner of the course were used to decide which areas within control theory would be included in the learning material. The selection is intended to capture the areas that students have most trouble with and are most suitably represented with domain-specific languages. The material describes the implementation of several domain-specific languages for control theory using the programming language Haskell 
+\begin{modtext}as well as analysing the included mathematics from a computer science perspective.
+\end{modtext} 
+%, and discusses these domain-specific languages' different function types. 
+The learning material covers some prerequisites for the course, such as integrals, complex numbers, and the Laplace transform. It also contains some central parts of control theory such as LTI systems, transfer functions, and the Nyquist criterion. Some didactic theory is studied and used to motivate the methods and design choices used in the learning material.
+
+Some possible future derivative projects include continuing to develop the learning material and the languages contained therein, empirically evaluating the presented learning material, or developing a similar material for another domain.
+
+%The primary audience of the material is students taking a course in control theory. They whom are interested in programming, but have either lacking prerequisite mathematical knowledge or other difficulties understanding the subject matter. The report is primarily targeted to anyone interested in 
+%faculties who wish to widen 
+%widening their repertoire of techniques to educate students with a background in computer science.
+
+%In order to determine which areas are most troublesome for students more easily, the learning material has been developed with a specific course on control theory at Chalmers University of Technology in mind. Course surveys and communication with the examiner of the course informed which areas within control theory that were selected to be included in the learning material. The selection was intended to capture the areas that students had most trouble with and were most suitably represented with domain-specific languages. 
+%As with the project ``DSLsofMath'', the programming language Haskell is used as a host language for the domain-specific languages. 
+%Which areas within control theory that were selected to be included in the learning material were based on communication with the examiner of the targeted course, as well as its course surveys. 
+%The areas were selected such that they would be among those students have had most trouble with, as well as those most suitably represented with domain-specific languages. As with the project ``DSLsofMath'' and its derivative works, the programming language Haskell is used as a host language for implementing the domain-specific languages.
+
+
+\vfill
+\noindent Keywords: Domain-specific language, DSL, learning material, control theory, Haskell

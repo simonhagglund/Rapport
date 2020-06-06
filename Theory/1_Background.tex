@@ -1,25 +1,45 @@
-\subsection{Background of the Control Theory Course ERE103}l\label{backgroundERE}
-The Chalmers course in Control Theory (ERE103) has a failure rate of 46\% according to 2016-2018 exam statistics \cite{data_program_blad_2018}. Not only is this an unreasonably high number in its own right, it is also a mandatory course for the Computer Science program. This makes the Control Theory course a roadblock for many students, and therefore we think this is a important course to focus our attention on.
+\subsection{Control Theory Course ERE103}\label{backgroundERE}
+The Chalmers course \course{Reglerteknik}{Control Theory}{ERE103} had a failure rate of approximately 50~\% in 2019 \cite{ere103_minutes}. 
+Not only is this an unreasonably high number in its own right,
+\begin{modtext}
+the course is also mandatory for students at the \begin{modtext}
+CSE 
+\end{modtext} \footnote{``Computer Science and Engineering'', ``Datateknik'' in Swedish} programme. Thus, having a high rate of failure makes the \gls{controltheory} course a roadblock for many students. 
+\end{modtext}
+%Not only is this an unreasonably high number in its own right, it is also a mandatory course for the ``Computer Science and Engineering'' programme. 
+%The high failure rates makes the \gls{controltheory} course a roadblock for many students \cite{Jansson_2019}.
 
-In an interview \cite{tssarbete}, the examiner speculated that the main problems the students have are based on not having enough experience in mathematical thinking. For example having trouble understanding the connection between abstract mathematics and the real-world thing being modelled.
-This leads to students spending a majority of their time and energy on understanding the mathematics and not enough on understanding the material taught in the course. For example, there are parts of control theory that utilise the Laplace transform to solve differential equations, but students could spend more time trying to understand what the Laplace transform does and less on understanding that the differential equations mean and how to use the results. 
+\iffalse % OLD, was repetitive, new text below
+Sometimes students struggle with other parts than the course content itself. For example there are parts of \gls{controltheory} that utilise the Laplace transform to solve differential equations, yet it is possible that students spend more time trying to understand what the Laplace transform does and less on understanding what the differential equations mean and how to use the results. In an interview \cite{tssarbete}, the examiner of \gls{ERE103} speculated that the main problems the students have are based on not having enough experience in mathematical thinking. For example having trouble understanding the connection between abstract mathematics and the real-world thing being modelled. This may cause students to spend a majority of their time and energy on understanding the mathematics and not enough on understanding the material taught in the course.
+\fi
 
-The minutes of the most recent course evaluation mentions that although the course starts with a review of the prerequisite material needed, students have reported that they have not been taught some of the prerequisites to a satisfactory level. For example, the previously mentioned problems with using the Laplace transform to solve differential equations. The syllabus \cite{ERE103} of the course explains it clearly:
-\begin{quote}
-    Basic concepts of mathematics that must be mastered before the start of the course are: [...] Laplace transform.
-\end{quote} % maybe avoid blockquote and make inline? 
-It seems like many students finds the course hard to grasp and the fail rate is high \cite{exam_stat_regler}.
+\begin{newtext}
+ In an interview \cite{tssarbete}, the examiner of \gls{ERE103} speculated that the main problem that students have is based on not having enough experience in mathematical thinking. As an example, they may have trouble understanding the connection between abstract mathematics and the real-world thing being modelled. This may cause students to spend a majority of their time and energy on understanding the mathematics and not enough on understanding the material taught in the course. For a more concrete example there are parts of \gls{controltheory} that utilise the Laplace transform to solve differential equations, yet it is possible that students spend more time trying to understand what the Laplace transform does and less on understanding what the differential equations mean and how to use the results.
+ \end{newtext}
+
+\begin{modtext}
+According to the course evaluation minutes of the 2019 instance of \gls{ERE103} \cite{ere103_minutes}, they have not been taught the prerequisites of the course to a satisfactory level. This is in spite of the course beginning with a short review of said prerequisites.
+\end{modtext}
+\iffalse
+\begin{modtext}
+The minutes of the course evaluation of the 2019 instance of the course \cite{ere103_minutes} mention
+\end{modtext}
+%The minutes of the most recent course evaluation \cite{ere103_minutes} 
+that although the course starts with a review of the prerequisite material needed, students have reported that they have not been taught some of the prerequisites to a satisfactory level;\fi
+For example, the previously mentioned problems with using the Laplace transform to solve differential equations. 
+The syllabus \cite{ERE103} of the course explains the necessary prerequisites thusly:
+``Basic concepts of mathematics that must be mastered before the start of the course are: Complex numbers, Linear algebra, Taylor series, Ordinary differential equations, Laplace transform.'' 
 
 %% Amongst computer science students, faculty staff and alumnus the course is commonly refereed to as the hardest course of the BCD in CS, a fact that reinforces that view is that is the fail rate. 
 
 
+%Denna text kan läggas på en annan del om det behövs.
+%% The creators of \gls{DSLsofMath} have found that students attending \gls{DSLsofMath} had a greater chance of passing courses requiring a lot of prior knowledge in mathematics the following year \cite{Jansson_2019}. The same approach could be applied to \gls{controltheory} by creating one or more \gls{DSL}s. As such, students could benefit by learning about \gls{controltheory} from a programmer’s point of view seeing as this has worked for a different subject and that \gls{controltheory} is an area many students struggle with.
 
-The creators of ``DLSofMath'' have found that students attending DSLofMath had a greater chance of passing courses requiring a lot of prior knowledge in mathematics the following year \cite{Jansson_2019}. The same approach could be applied to control theory by creating one or more DSLs. To wit, students could benefit by learning about control theory from a programmer’s point of view seeing as this has worked for a different subject and that control theory is an area many students struggle with.
+%There have been previous projects where the approach of using DSLs has been used: one of these projects, which resulted in a BSc thesis \cite{tssarbete}, explored DSLs' uses in the course ``Transforms, Signals and Systems'' (Transformer, signaler och system SSY080 \cite{SSY080}). In this report, this project will be referred to as ``TSS with DSLs.''
+%Another BSc thesis \cite{fysikarbete} examined the course ``Physics for Engineers'' (Fysik för ingenjörer TIF085 \cite{TIF085}). This will be referred to as ``Physics with DSLs.''
 
-There have been previous projects where the approach of using DSLs has been used: one of these projects, which resulted in a BSc thesis \cite{tssarbete}, explored DSLs' uses in the course ``Transforms, Signals and Systems'' (Transformer, signaler och system SSY080 \cite{SSY080}). In this report, this project will be referred to as ``TSS with DSLs.''
-Another BSc thesis \cite{fysikarbete} examined the course ``Physics for Engineers'' (Fysik för ingenjörer TIF085 \cite{TIF085}). This will be referred to as ``Physics with DSLs.''
-
-The same methods used in the aforementioned projects and course should be useful for providing supplemental learning material for the Control Theory course as well. Especially so for students with a background in functional programming. The work carried out in ``TSS with DSLs'' will be extra useful since the courses SSY080 and ERE103 share many common traits.
+%The same methods used in the aforementioned projects and course should be useful for providing supplemental learning material for the Control Theory course as well. Especially so for students with a background in functional programming. The work carried out in ``TSS with DSLs'' will be extra useful since the courses SSY080 and ERE103 share many common traits.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                                       %

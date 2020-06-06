@@ -1,11 +1,11 @@
-\documentclass%[final]%removes todos
-{article}
+\documentclass[final]{article}
 \usepackage[left=4.5cm,top=4.5cm,right=4.5cm,nofoot]{geometry}% Distance to edges, change so it looks good and we get a good number of pages
 \setlength{\footskip}{40pt}
-\usepackage[dvipsnames]{xcolor}     % some nice colors
+\usepackage[x11names]{xcolor}     % some nice colors
 \usepackage[swedish, english]{babel}% Tells latex that we write in english, so it follows english rules. Swedish for sammandrag.
 \usepackage[utf8]{inputenc}         % MISSING
 \usepackage{graphicx}               % more options for includegraphics, not sure it's currently necessary 
+\usepackage[export]{adjustbox} % For border in figures
 \usepackage{float}                  % MISSING
 \usepackage{comment}                % MISSING
 \usepackage[style=ieee
@@ -18,16 +18,22 @@
 \usepackage{hyperref}               % hyperlinks in text
 \usepackage{minted}                 % Highlights code.
 \usepackage{bashful}                % dynamic word count
+\usepackage{fancyhdr}               % for fancy pagestyle
 
-\usepackage{subfig}                 % Adds subfigures in figures.
+%\usepackage{subfig}                 % Adds subfigures in figures. Incompatible with subcaption
+\usepackage{subcaption}
 \usepackage{caption}
-\usepackage{csquotes}               % supposed to ensure quotes are right depending on context - csquotes = contex sensitive quotes 
+\captionsetup{labelfont=bf}
+\usepackage[threshold=1]{csquotes}               % supposed to ensure quotes are right depending on context - csquotes = contex sensitive quotes 
 \usepackage[normalem]{ulem}         % strikethrough; normalem fixes the underlined references
 \usepackage{subfiles}               % Ladda denna sist.
 \usepackage{amsmath}
 \usepackage{pdfpages} %för att bifoga produkten
+\usepackage{textcomp} % för copyright symbol
 
-\usepackage[toc]{glossaries}%för ordlista
+\usepackage{ifdraft} % Används för newtext env
+
+\usepackage[toc,acronym]{glossaries}%för ordlista
 \makeglossaries
 \loadglsentries{ordlista.tex}
 
@@ -40,8 +46,8 @@ texcount -sum -1 abstract.tex
     colorlinks=true,
     linkcolor=blue,
     filecolor=magenta,      
-    urlcolor=cyan,
-    citecolor=red,% open for suggestions, I just hurt my eyes on the bright green
+    urlcolor=blue,
+    citecolor=blue,% open for suggestions, I just hurt my eyes on the bright green
 }
 
 \DeclareCaptionFont{blue}{\color{LightSteelBlue3}}
@@ -53,6 +59,44 @@ texcount -sum -1 abstract.tex
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
 \newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\vspace{2mm}\\}
+
+%% Hyphenation
+\hyphenation{an-a-lyse} % not anal-yse >:(
+%%
+
+
+% Minted
+\setminted{bgcolor=black!5,frame=single,framesep=10pt,escapeinside=\%\%,fontsize=\small}%,linenos}
+%%% To match minted bg and frame
+\makeatletter
+\renewenvironment{minted@colorbg}[1]{
+\setlength{\fboxsep}{\z@}
+\def\minted@bgcol{#1}
+\noindent
+\begin{lrbox}{\minted@bgbox}
+\begin{minipage}{\linewidth}}
+{\end{minipage}
+\end{lrbox}%
+\colorbox{\minted@bgcol}{\usebox{\minted@bgbox}}}
+\makeatother
+% distance between text and code became about nonexistent w/o these lines
+\BeforeBeginEnvironment{minted}{\bigskip}
+\AfterEndEnvironment{minted}{\bigskip}
+%%%
+%\usepackage{tcolorbox}
+%\usepackage{etoolbox}
+%\BeforeBeginEnvironment{minted}{\begin{tcolorbox}}%
+%\AfterEndEnvironment{minted}{\end{tcolorbox}}%
+%\usepackage{mdframed}
+%\BeforeBeginEnvironment{minted}{\begin{figure}\begin{mdframed}[backgroundcolor=yellow!10]}
+%\AfterEndEnvironment{minted}{\end{mdframed}\end{figure}}
+%\newenvironment{mintedfig}[0]{
+%\begin{mdframed}[backgroundcolor=yellow!10]
+%\begin{minted}{haskell}
+%}{
+%\end{minted}
+%\end{mdframed}
+%}
 
 
 % Adds choice for hiding stuff when we are in a writing phase. 
@@ -67,8 +111,14 @@ texcount -sum -1 abstract.tex
 
 
 % some commands for semantic tagging
-\newcommand{\cmd}[1]{\mintinline{#1}} % to typeset commands 
-\newcommand{\course}[3]{``#1'' (``#2'' #3 \cite{#3})} % arguments, in order: english name, swedish name, course code
+\newcommand{\cmd}[1]{\mintinline[bgcolor={}]{haskell}{#1}} % to typeset commands 
+\newcommand{\course}[3]{``#1'' (``#2'' \gls{#3} \cite{#3})} % arguments, in order: english name, swedish name, course code
+
+%%%%
+\newenvironment{newtext}{\ifoptionfinal{}{\color{Green4}}}{\ignorespacesafterend}
+\newenvironment{modtext}{\ifoptionfinal{}{\color{Khaki4}}}{\ignorespacesafterend}
+%%%%
+
 
 
 % Educational Language of Control Theory?
@@ -78,30 +128,47 @@ texcount -sum -1 abstract.tex
 % Learning Material for Control Theory with Domain-Specific Languages?
 % Demystifying syntax and semantics of control theory.  
 % Controlling Education through Domain Specific Languages 
-\title{Demystifying the Syntax and Semantics of Control Theory
+\title{
+A Computer Science Approach to Teaching Control Theory
  \vspace*{5.5mm}
  % (Using Domain-specific Languages?)
- \\ {\Large Developing course material using \\ Domain-Specific Languages} 
- \vspace*{85mm}
- }
+ \\ {\Large 
+% Developing Learning Material
+% Developing Learning Material Using  Domain-Specific~Languages \textcolor{red}{or} \\ Developing Learning Material \textcolor{red}{or} \\ 
+Developing Learning Material using Domain-Specific~Languages}
+}
   
 \author{
-
-    Filip Nylander \and
+    Jakob Fihlman \and
     \vspace*{0.001pt}
-    Jakob Fihlman \and 
+    Simon Hägglund \and 
     Christian Josefson \and 
+    Filip Nylander \and
     Elin Ohlman \and 
-    Tommy Räjert \and 
-    Simon Hägglund
+    Tommy Räjert 
     }
+%\vspace*{85mm plus 0mm minus 30mm}
 \bigskip
 \date{\vspace*{5mm} Spring - 2020} % unless anyone comes up with anything better 
 
-\begin{document}
 
+
+\begin{document}
+\setcounter{page}{-10} % så att glossary länkarna fungerar
+\thispagestyle{empty}
+\includepdf[pages=-]{cover_kand.pdf}
+\null
+\thispagestyle{empty}
+\newpage
+
+\thispagestyle{empty}
 \maketitle
 \thispagestyle{empty}
+
+\newpage
+\subfile{tryckort}
+\thispagestyle{empty}
+
 
 
 \setlength{\marginparwidth}{2.6cm} % fixes todonotes margin problem
@@ -116,11 +183,14 @@ Proposed colour coding for todo notes. TR
 \fi
 
 \newpage
+\pagenumbering{Roman}
 
 \begin{abstract}
     \subfile{abstract} 
 \end{abstract}
+\newpage
 \begin{otherlanguage}{swedish} 
+    \renewcommand\abstractname{Sammandrag}
     \begin{abstract}
      \subfile{sammandrag} 
     \end{abstract}
@@ -138,25 +208,27 @@ Proposed colour coding for todo notes. TR
 
 
 \newpage
+
+\subfile{preface}
+\newpage
 \renewcommand*\contentsname{Table of Contents}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 
 \tableofcontents
 \newpage
-\setcounter{page}{1}
-\pagenumbering{Roman}
-\setcounter{page}{1}
-\pagenumbering{arabic} 
+%\setcounter{page}{1}
+%\pagenumbering{Roman}
 
 \printglossary
 \newpage
+\setcounter{page}{1}
+\pagenumbering{arabic} 
+\pagestyle{fancy}
 \subfile{introduction}
 \newpage
 \input{Theory/main}
 \newpage
-\subfile{Didactics}
-\newpage
-\subfile{process}
+\subfile{Process}
 \newpage
 \subfile{Produkt}
 \newpage
@@ -168,15 +240,15 @@ Proposed colour coding for todo notes. TR
 \printbibliography
 \newpage
 \appendix
-%\listoffigures
-%\listoftables
+
 \section{Learning material}\label{app_learning_material}
-Here follows a snapshot as of \textbf{date} of the learning material that was developed during this project. Please note that this is a work still in progress and to see an up to date version please visit \url{https://github.com/simonhagglund/DATX02-dsl}.
+Here follows a snapshot as of 2020-06-05 of the learning material that was developed during this project. Please note that this is a work still in progress and to see an up to date version please visit \url{https://github.com/simonhagglund/DATX02-dsl}.
 
 
-ladda ner aktuell version och byt rad (jobbitgt att ladda hela varje gång) skriv även ned datum här och i sec:learning material.
-\includepdf[page={1,2,3}]{produkt.pdf}
+%ladda ner aktuell version och byt rad (jobbitgt att ladda hela varje gång) skriv även ned datum här och i sec:learning material.
+\includepdf[pages=-]{produkt.pdf}
+%\includepdf[pages=-]{produkt.pdf}
 
-
+\includepdf[pages=-]{back_kand.pdf}
 
 \end{document}

@@ -1,64 +1,158 @@
-\section{Learning material}
-All the material from our project is available at \url{https://github.com/simonhagglund/DATX02-dsl} where the material itself but also all code, the planning report and this report is accessible.  A snapshot of the material as of \textbf{date}\todo[color=other]{insert date} is attached in appendix \ref{app_learning_material}. 
+\section{Learning material}\label{sec:learningmaterial}
+\iffalse
+ In this section we present a summary and some extracts from the learning material. This is meant to provide the reader with basic familiarity with the learning material to more easily be able to follow the rest of the report. 
 
-In this section we present a summary and some extracts from the learning material. This is meant to provide the reader with basic familiarity with the learning material so as to easier be able to follow the rest of the report. If interested the reader is very welcome to read the full learning material instead.
+All the material from our project is available at GitHub\footnote{ \url{https://github.com/simonhagglund/DATX02-dsl}} where the material itself, all code and this report is accessible. A snapshot of the material as of 2020-06-05 attached in appendix \ref{app_learning_material}. Please note that the material is still in development and an updated version is available on GitHub.
+
+ \fi
+ 
+\begin{modtext}
+This section provides an overview of the learning material, along with  explanations for the decisions made while writing the text. This is primarily meant to elucidate the overall layout and direction of the text. For a more in-depth look, it is recommended to read the learning material itself.
+
+The complete text as of 2020--05--14 has been included in appendix \ref{app_learning_material}. Please note that the text is still in development as of the writing of this report, and an up-to-date version is available at GitHub\footnote{\url{https://github.com/simonhagglund/DATX02-dsl}}.
+\end{modtext}
+
+
+
 
 \subsection{Prerequisites}
-This section contains a repeat of key course prerequisites, and serves three purposes. First, repeating the subjects refreshes the students' understanding of them, ensuring that they truly know what they need to tackle everything that comes after. Second, a ''soft start'' with a few easier subjects should help re-engage the students, especially after downtime, i.e. winter or summer semesters. Third, the section serves as a soft introduction to DSLs. By introducing the overall structure in a familiar environment we ensure minimal confusion in later sections.
+The prerequisites section in the learning material contains a repeat of 
+\begin{newtext}
+some 
+\end{newtext}
+key course prerequisites, and serves \begin{modtext}two\end{modtext}\todo{It said three here, but I changed it to two since we only mention two.} purposes. 
+\begin{modtext}
+First, to rehearse both these prerequisites and Haskell itself, in order to flatten the initial learning curve to some degree. %First, repeating the subjects refreshes the students' understanding of them, ensuring that they truly know what they need to tackle everything that comes after. 
+%Second, a soft start with a few easier subjects should help re-engage the students, especially after downtime, i.e. winter or summer semesters.
 
-\subsubsection{Subsections} The prerequisites section comes with two subsections; one covering complex numbers and the other integrals. Here is an example from the text.
+Secondly, to introduce and familiarise the reader with the approach of teaching with \gls{DSL}s and explicit typing, and doing so with subjects that should already be familiar to the reader in order to make this transition more natural. %Third, the section serves as a soft introduction to \gls{DSL}s. By introducing the overall structure in a familiar environment we ensure minimal confusion in later sections.
+\end{modtext}
 
-\blockquote{Imaginary numbers have a tendency to show up alongside real numbers. As such, mathematicians have standardized complex numbers as being read ``a + bi.'' Some examples of complex numbers written this way are $2+3i$, $\pi + ei$ and $1+0i$. 
+\subsubsection{Complex numbers} 
+%The prerequisites section comes with two subsections; one covering complex numbers and the other integrals. 
+The complex numbers subsection covers the core concept of the subject, along with a few basic operators. Its associated \gls{DSL} is based around representing complex numbers as coordinates, thus giving the students a useful way to remind them how real and imaginary numbers interact with one another. Especially when dealing with arguments and absolute values, as understanding these is vital in the sections covering Laplace transforms and Nyquist diagrams. Finally, it also introduces the limitations of \gls{DSL}s, and the value of adapting our language to engage problems from different perspectives.
+%---the core goal of \gls{DSL}s.
+
+Here is an example from the learning material where we see how code and explanation work together:
+
+\begin{quote}
+Imaginary numbers have a tendency to show up alongside real numbers. As such, mathematicians have standardized complex numbers as being read ``a + bi.'' 
 We'll get back to that soon, but first we want to introduce our own representation. 
-}
+
 \begin{minted}{haskell}
-    data Complex = Complex (R, R)
-        deriving (Show)
+data Complex = Complex (R, R)
+    deriving (Show)
 \end{minted}
+\end{quote}
 
-The complex numbers subsection covers the core concept and a few basic operators. Its associated DSL is based around representing complex numbers as coordinates, thus both giving the students a useful ''hook'' to help remind them how real and imaginary numbers interact with one another. Especially when dealing with arguments and absolute values, as understanding these is vital in later sections. Finally, it also introduces the limitations of DSLs, and the value of adapting our language to engage problems from different perspectives; the core goal of DSLs.
+\subsubsection{Integrals}
 
-The integral subsection introduces the purpose of integral operations along with two different solutions. The DSL is built to mimic traditional algebra and introduce students to the idea of DSLs with compositional word structure. Since integrals are a little harder to grasp, there is also a greater focus on didactics. A common problem when teaching math is the question of why it is worth learning. The subsection begins by answering this, thus hopefully igniting the students' interest early on, easing learning. The first solution is designed to be as simple to learn as possible, while also allowing the students to take maximal advantage of their computers to estimate an answer, helping the students gain some confidence. The second solution is more complex, building on a more abstract understanding of algebra and relying on primitive functions to reach a true value. A potential downside of this structure is that once students have understood the first solution, they may lose interest in the latter. For our purposes, leaving it up to the students have deep they want their understanding to be is acceptable, as understanding only the brute force solution should be sufficient for later sections.
+The integral subsection introduces the purpose of integral operations along with two different solutions. The \gls{DSL} is built to mimic polynomial algebra and introduce students to the idea of \gls{DSL}s with compositional word structure. %Since integrals are a little harder to grasp, there is also a greater focus on \gls{didactic}s. A common problem when teaching mathematics is the question of why it is worth learning. The subsection begins by answering this, thus hopefully igniting the students' interest early on, to ease learning. 
+There are different ways of calculating integrals. We present two different ways: first we show how to numerically calculate integrals, and second we show how to do it analytically using primitive functions. 
 
-\iffalse In this section we explain some concepts the reader should already be familiar with. This part works as a way to introduce the readers to the subject. Other than complex numbers this section also explains integrals.
+%The first way is designed to be as simple to learn as possible, while also allowing the students to take maximal advantage of their computers to estimate an answer, helping the students gain some confidence. The second way is more complex, building on a more abstract understanding of algebra and relying on primitive functions to reach a true answer. 
 
-\subsubsection{Complex numbers}
-The complex numbers section is a subsection to the prerequisites section. The section introduces some basic operations on complex numbers and show the reader why complex numbers is a useful concept. The readers are also introduced to some more advanced operations with complex numbers. The multiply operator is explained with pictures and some Haskell code.
 
-All throughout the section complex numbers are explained with geometry. The users get a graphic explanation of the complex numbers.\fi
+
+%
 
 \subsection{Laplace Transform}
-In this section the Laplace transform is introduced to the reader. The definition of the Laplace transform and type is described in the beginning and later the table of common Laplace transforms is introduced. The section shows the reader how the table is used to solve problems and why this approach is preferred. Below is a example from the introduction of the section.
+In this section of the learning material the Laplace transform is introduced to the reader. The definition of the Laplace transform and type is described in the beginning and later the table of common Laplace transforms is introduced. The section shows the reader how the table is used to solve problems and why this approach is preferred. Below is an example from the introduction of the section.
 
-\blockquote{The Laplace transform is a tool that enables us to look at a function or equation from a different perspective. More specifically, it takes a function of time and transforms it into a function of frequency.}
+\blockquote{The Laplace transform is a tool that enables us to look at a function or equation from a different perspective. 
+More specifically, it takes a function in time domain  and transforms it into a function in frequency domain.
+}
 
-This sections also explains some useful rules that applies to the transform. Superposition (linearity), derivative rule and integral rule are all explained in detail. Convolution is also introduced in this part of the material and how convolution is Laplace transformed. Furthermore time shifting and frequency shifting are also a part of this section. At the end of this section the inverse Laplace transform is explained.
+This sections also explains some useful rules that apply to the transform. Superposition (linearity), the derivative rule and the integral rule are all explained in detail. Convolution is also introduced in this part of the material and how convolution is Laplace transformed. Furthermore time shifting and frequency shifting are also a part of this section. At the end of this section the inverse Laplace transform is explained.
 
 \subsection{Transfer Functions}
-In this section transfer functions and linear time-invariant systems (LTI systems) are introduced as well as the connection to the Laplace transform. The first part of this section explains LTI systems and the properties of LTI systems. This section show the reader how to manipulate LTI systems and express them with Haskell. Many of the concepts that were introduced in the Laplace transform section are used in LTI systems. Later in the section, the type of LTI systems are discussed with some examples and the connection to transfer functions is established. The section also explains how transfer functions are used in different ways and how this relates to their type.
+In this section transfer functions and linear time-invariant systems (\gls{LTI} systems) are introduced, as well as the connection to the Laplace transform. The first part of this section explains \gls{LTI} systems and their properties. This 
+\begin{modtext}
+part %section 
+\end{modtext}
+shows the reader how to manipulate these systems and express them with \gls{Haskell}. Many of the concepts that were introduced in the Laplace transform section are used to analyse \gls{LTI} systems. Later in the section, the type of \gls{LTI} systems is discussed with some examples, and the connection to transfer functions is established. The section also explains how transfer functions are used in different ways and how this relates to their type.
 
-The second part of this section explores how LTI systems preserve sinusoidal input signals' shape. In this section the reader can see, step by step, how a LTI system will process the sine function. Below, a deeply embedded DSL for LTI systems on sinusoidal input is shown, that was used for this section.
+The second part of this section explores how \gls{LTI} systems preserve sinusoidal input signals' shape. In this 
+\begin{modtext}
+part %section 
+\end{modtext}
+the reader can see, step by step, how an \gls{LTI} system will process the sine function. Below, a deeply embedded \gls{DSL} for \gls{LTI} systems on sinusoidal input taken from this section is shown.
 
-\todo[color=other]{Make sure the coding environment looks right!}
 \begin{minted}{haskell}
-data Signal a where
-  -- Amp -> Freq -> Time-shift -> (a -> a)
-  Sin   :: Num a => a -> a -> a -> Signal a
-  Sum   :: Signal a -> Signal a -> Signal a
-  Scale :: a -> Signal a -> Signal a
-  Deriv :: Signal a -> Signal a
-  Integ :: Signal a -> Signal a
-deriving instance Eq a => Eq (Signal a)
+data Signal x where
+  -- Amp -> Freq -> Time-shift -> (x -> x)
+  Sin   :: Num x => x -> x -> x -> Signal x
+  Sum   :: Signal x -> Signal x -> Signal x
+  Scale :: x -> Signal x -> Signal x
+  Deriv :: Signal x -> Signal x
+  Integ :: Signal x -> Signal x
+    deriving (Eq)
 \end{minted}
 
-Later in this section we recall to previous sections about convolution and how this is being used to combine LTI systems. At the end of this section we discover how to find the transfer function of a LTI system. A step by step guide with code show the reader how the Laplace transform is being used to do this. 
+%\begin{minted}{haskell}
+%data Signal x where
+%  -- Amp -> Freq -> Time-shift -> (x -> %x)
+%  Sin   :: Num x => x -> x -> x -> Signal x
+%  Scale :: x -> Signal x -> Signal x
+%  Sum   :: Signal x -> Signal x -> Signal x
+%    deriving (Eq)
+%\end{minted}
 
-\subsection{Nyquist}
-In this section the Nyqvist theorem of stability is introduced to the reader. At the start of the section Cauchy’s argument principle is explained as a method to find the number of poles and zeroes of a function. It shows the reader how to interpret the plot produced by the argument principle.
+\begin{minted}{haskell}
+evalSignal :: (Num x, Floating x, Eq x, Ord x) => Signal x -> (x -> x)
+evalSignal (Sin   amp frq ts) t = amp * sin (frq * t + ts)
+evalSignal (Scale amp s)      t = amp * evalSignal s t
+evalSignal (Sum   s1  s2)     t = evalSignal s1 t + evalSignal s2 t
+\end{minted}
 
-Later in the section Nyqvist theorem is explained and what you can do with it. The idea behind the theorem is explained and how we should look at the result. At the end of the section a easier version of the theorem is introduced. Below you will find the introduction to this section.
+\noindent
+Later in this 
+\begin{modtext}
+part %section 
+\end{modtext}
+convolution is used to combine \gls{LTI} systems. 
+\begin{modtext}
+It is also shown how a transfer function can be derived from differential equation of the system input and output, using the Laplace transform.
+\end{modtext}
+%Towards the end of that section it is also shown how to find the transfer function of an \gls{LTI} system. A step-by-step guide with code shows the reader how the Laplace transform is used to do this. 
 
-\blockquote{Nyqvist theorem will use this principle to find out if a system i stable or not. The Nyqvist theorem is graphical technique and will result in a Nyqvist plot. In the case of the a closed loop system the transfer function is defined as \begin{equation*}
-    F(s) \ (1 + F(s)H(s))
-\end{equation*}}
+Lastly, how entire LTI systems are combined is explored in order to connect this to the algebraic manipulation of variables representing systems, which later is used in the section on the Nyquist stability criterion. 
+\begin{newtext}
+This uses a \gls{DSL} based on the \gls{DSVL} that block diagrams provides in the context of control theory, shown below. The \gls{DSL} consists of four constructors, one of which (\cmd{TF}) constructs an \gls{LTI} system from a name given to its transfer function. Its semantic value is specified by a parameter in the evaluation function. The other three constructors compose \gls{LTI} systems by combining other \gls{LTI} systems by functional composition (\cmd{:->}), summation (\cmd{:<>}), or by closing a loop (\cmd{FB}). These constructors' semantics is reflected by the evaluation function show below.
 
+\begin{minted}{haskell}
+data LTI where
+  TF    :: String -> LTI
+  (:->) :: LTI -> LTI -> LTI
+  (:<>) :: LTI -> (LTI, LTI) -> LTI
+  FB    :: LTI -> LTI -> LTI
+\end{minted}
+
+\begin{minted}{haskell}
+evalLTI :: (String -> (C -> C)) -> LTI -> (C -> C)
+evalLTI d (TF s) = d s
+evalLTI d (a :-> b) = \z -> evalLTI d a z * evalLTI d b z
+evalLTI d (a :<> (b, c)) = \z -> eval d a z * (eval d b z + eval d c z)
+evalLTI d (FB a b) = eval d a / (1 - eval d a * eval d b)
+\end{minted}
+\end{newtext}
+
+\subsection{The Nyquist Stability Criterion}
+The section starts by informally explaining stability and introducing the Nyquist stability criterion---a method used to determine whether a system is stable. The importance of poles and zeroes of a function for the Nyquist criterion is then explained, whereafter contours are introduced in order to allow for contour mapping as a tool to determine the location of zeroes and poles of a function. 
+\begin{newtext}
+Where earlier sections rely more heavily on deep embeddings, this section uses shallow embeddings to a greater extent, as this is used to describe contour mapping. 
+\end{newtext}
+\begin{modtext}
+Since the Nyquist stability criterion describes the relation between poles of a transfer function and whether the corresponding system is stable, the criterion is then %brought up and 
+explained with these new tools.
+\end{modtext}
+
+%In this section the Nyquist stability criterion is introduced to the reader. At the start of the section Cauchy’s argument principle is explained as a method to find the number of poles and zeroes of a function. It shows the reader how to interpret the plot produced by the argument principle.
+%
+%Later in the section Nyqvist theorem is explained and what you can do with it. The idea behind the theorem is explained and how we should look at the result. At the end of the section a easier version of the theorem is introduced. Below you will find the introduction to this section.
+%
+%\blockquote{Nyqvist theorem will use this principle to find out if a system i stable or not. The Nyqvist theorem is graphical technique and will result in a Nyqvist plot. In the case of the a closed loop system the transfer function is defined as \begin{equation*}
+%    F(s) = (1 + F(s)H(s))
+%\end{equation*}}
+
+%

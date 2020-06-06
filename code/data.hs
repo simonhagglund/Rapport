@@ -1,3 +1,4 @@
-data DSL a where 
-     Id    :: DSL a
-     (:+:) :: DSL a -> DSL a -> DSL a
+data DSL x where 
+ Unit  :: DSL x
+ Const :: x -> DSL x
+ (:+:) :: DSL x -> DSL x -> DSL x

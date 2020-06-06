@@ -1,3 +1,3 @@
-class Eq a where
-    (==) :: a -> a -> Bool
-    (/=) :: a -> a -> Bool
+class Monoid x where
+  mempty  :: x 
+  mappend :: x -> x -> x

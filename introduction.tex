@@ -1,40 +1,59 @@
+\iffalse 
+Möte med patrik om rapport:
+
+Lång abstract, väcka intresse, kanske ha delimitations här. 1-2s och den är till för att läsaren ska känna sig ganska väl omhändertagen. Exempel, och det som är kärnan, produkten behöver bli mer synlig. 
+
+Vad för slags grej är det egentligen?
+
+det gör inte något om exempel är för komplicerade.
+
+Bra om vi väljer en bit som handlar om dsler och reglerteknik.
+
+\fi
+
 \section{Introduction}\label{intro}
 \iffalse 
 \todo[inline,color=other]{Presentera på ett intresseväckande sätt ämnet och tidigare forskning (både allmän pedagogisk forskning och sen även den specifika med patriks och de tidigare kandidatarbetena), bra att väva in källor här. Presentera vår ide och varför den behövs/är intressant. (Både kursspesifikt för eleverna som läser kursen men även mer allmänt att den är intressant för folk som är intresserade av pedagogik/didaktik aspekten och folk som vill göra liknande projekt. (Detta ger relevans till projektet och motiverar även läsaren att läsa vidare. (Osannolik att läsaren är en användare av materialet)). Presentera i detalj vad vår produkt är (skriva mer om reglerteknik specifikt (kan ta delar från 1.1 men inte allt, blir för långt) och beskriva vad rapporten kommer ta upp.}
 \fi
-%Tänkter att denna text är max två sidor.
-%Delar upp i subsections för att det ska vara lättare att skriva. Tänker mig egentligen att det inte ska vara några
 
-
-\gls{dsl}
-In the case of subjects which require a high mathematical ability, a student might have trouble with the underlying mathematics instead of the subject matter. For example, 
-while studying electromagnetic theory, integrals of three variables are likely to show up. Not being able to calculate them might hinder the student from further understanding in the subject. 
+\begin{modtext}
+Learning a new and difficult subject can be arduous. When knowledge can be connected to already familiar knowledge, learning can be easier than when knowledge is entirely new. \todo{I'm unsure about the second sentence}
+\end{modtext}
+%Everyone has struggled sometime in their life with learning a new and difficult subject. It is often easier to do things you are already familiar with as it will be much easier than a completely new subject or area. 
+%
+%In the case of subjects which require a high mathematical ability, a student might have trouble with the underlying mathematics instead of the subject matter. For example, 
+%while studying electromagnetic theory, integrals of three variables are likely to show up. Not being able to calculate them might hinder the student from further understanding in the subject. 
+% Not being able to understand them will likely prevent the student from fully exploring the subject.
 In this text we will focus on the difficulties for computer science students when learning control theory and possible solutions to the problem. %Computer science students have the advantage of being very comfortable with programming which can also be used in non-programming courses.
 
-It has been argued that the computer science perspective could be beneficial for mathematics education \cite{wells1995communicating}. There are many ideas in that text on how to improve mathematical education, but two ideas in particular are worth mentioning: writing out the types of introduced objects and being explicit about the distinction between syntax and semantics. As an example of the distinction between syntax and semantics, Wells discusses the difference between $2/7$ and $2/(4+3)$. Semantically they are identical, but syntactically they are different. In short, Wells argues that typically there are differences between teachers and students; teachers see the mathematical objects as existing outside of the representations while students see the representation as the object \cite{wells1995communicating}. Wells argues that confusions arising from that distinction might be avoided the students have words for it.  
+It has been argued that the computer science perspective could be beneficial for mathematics education. In ``Communicating mathematics: Useful ideas from computer science'' \cite{wells1995communicating}, Wells have many ideas on how to improve mathematical education, but two ideas in particular are worth mentioning: writing out the types of introduced objects and being explicit about the distinction between syntax and semantics. As an example of the distinction between syntax and semantics, Wells discusses the difference between $2/7$ and $2/(4+3)$. Semantically they are identical, but syntactically they are different. In short, Wells argues that, typically, there are differences between how teachers and students view these mathematical objects. Wells argues that confusion arising from that distinction might be avoided if the students have words for it. 
 
-There have been attempts to put in practice the idea of teaching mathematics (and physics) using computer scientific tools, for example: 
-Functional Differential Geometry \cite{sussman2013} implements differential geometry in the programming language Scheme;
-A Logical Guide to Discrete Math \cite{gries2013logical} is written from the perspective of two programming methodologists; 
-Learn Quantum Mechanics with Haskell \cite{quantumwithhaskell} describes how Haskell can be used to model quantum mechanics; and Learn Physics with Haskell \cite{physicswithhaskell} describes a similar approach to teaching mechanics and electromagnetic theory in a course at Lebanon Valley College. % Jag tror jag kan hitta fler exempel, men detta räcker kanske?
-% Rule of three says it's plenty :) /J
+There have been attempts to put in practice the idea of teaching mathematics and related domains using computer science tools. Some examples include ``Functional Differential Geometry'' \cite{sussman2013} where differential geometry is implemented in the programming language Scheme,
+``A Logical Guide to Discrete Math'' \cite{gries2013logical} which is written from the perspective of two programming methodologists,
+``Learn Quantum Mechanics with Haskell'' \cite{quantumwithhaskell} which describes how \gls{Haskell} can be used to model quantum mechanics, and finally ``Learn Physics with Haskell'' \cite{physicswithhaskell} which describes a functional programming approach to teaching mechanics and electromagnetic theory in a course at Lebanon Valley College. 
 
-One attempt has been a special inspiration: Domain-specific languages of Mathematics (DSLsofMath) which is a project aiming to both analyse mathematics from a computer science perspective and to teach how to construct domain-specific languages in Haskell \cite[p.~6]{dslsofmath}. A domain-specific language (often shortened DSL) is ``a computer programming language of limited expressiveness focused on a particular domain'' \cite[p.~27]{fowler_parsons_2010}.
-There are multitudes of domains one can implement DSLs for, and DSLsofMath aims to show how different areas of mathematics such as group theory and logic can be seen as such domains \cite[p.~5--6]{dslsofmath}.
-
-DSLsofMath has resulted in a course at Chalmers University of Technology, \course{Domain-specific Languages of Math}{Matematikens Domänspecifika språk}{DAT326}. Passing the course has some positive correlation with passing later courses that many students struggle with \cite[p.~85]{Jansson_2019}. % one of the courses struggled with is about Control theory, maybe? 
+One attempt has been a special inspiration for this project: ``Domain-specific languages of Mathematics'' (\begin{newtext}henceforth \end{newtext}``\gls{DSLsofMath}'') which is a project aiming to both analyse mathematics from a computer science perspective and to teach how to construct \gls{DSL2}s in \gls{Haskell} \cite{dslsofmath}. A domain-specific language (often shortened \gls{DSL}) is ``a computer programming language of limited expressiveness focused on a particular domain'' \cite[p.~27]{fowler_parsons_2010}.
+There is a multitude of domains one can implement \gls{DSL}s for, and DSLsofMath aims to show how different areas of mathematics such as group theory and logic can be seen as such domains~\cite{dslsofmath}. \gls{DSLsofMath} has resulted in a course at Chalmers University of Technology, \course{Domain-specific Languages of Mathematics}{Matematikens Domänspecifika språk}{DAT326}. Passing the course has shown positive correlation with passing later courses that many students struggle with \cite{Jansson_2019}. % one of the courses struggled with is about Control theory, maybe? 
 
 
-Control theory is a subject which might benefit from being taught using DSLs. Control theory is, in short, the study of systems and their control. 
-A rudimentary example of a system is a shower, where the temperature of the water is controlled by turning the shower knob. This example involves human input, but in many cases we would prefer to not require human input. Control theory is used to automate the control of systems using different mathematical analyses. Thus previously mentioned problems with mathematics might hinder a student from learning Control theory. One way to solve this could be to use an approach similar to DSLsofMath, using DSLs to teach Control theory.
+\Gls{controltheory} is a subject which might benefit from being taught using \gls{DSL}s. \Gls{controltheory} is, in short, the study of systems and their control. 
+A rudimentary example of a system is a shower, where the temperature of the water is controlled by turning the shower knob. This example involves human input, but in many cases we would prefer to not require human input. \Gls{controltheory} is used to automate the control of systems using different mathematical analyses. Thus previously mentioned problems with mathematics might hinder a student from learning \gls{controltheory}. One way to solve this could be to use an approach similar to \gls{DSLsofMath}, using DSLs to teach \gls{controltheory}. This project will attempt to implement this approach.
 
-As a concrete example of the difficulties in teaching Control theory: at Chalmers University of Technology, third-year students at the Computer Science programme take an introductory course in Control theory. The course, \course{Control theory}{Reglerteknik}{ERE103} is a course students typically struggle with \cite[p.~85]{Jansson_2019}. As it is an obligatory course it can represent a significant stumbling block, and efforts should be made to help. 
+As a concrete example of the difficulties in teaching \gls{controltheory}: at Chalmers, third-year students at the ``Computer Science and Engineering'' programme take an introductory course in \gls{controltheory}. The course, \course{Control Theory}{Reglerteknik}{ERE103} is a course students typically struggle with \cite{Jansson_2019}. As it is a mandatory course it can represent a significant stumbling block which makes it a good candidate for our project. 
 
-Our project has been to create a supplementary learning material for Control theory following the approach used in DSLsofMath. The learning material describes the process of creating domain-specific languages for Control theory. Some of the tools required to successfully study Control theory, complex numbers and the Laplace transform, are described using their own DSLs, as well as some parts of Control theory, for example transfer functions. Which parts to include in the learning material were identified in two ways: asking the examining teacher in the course and reading the course evaluation minutes. 
+The aim of this project has been to create a supplementary learning material for \gls{controltheory} following the approach used in \gls{DSLsofMath}. The learning material describes the different domain-specific languages for \gls{controltheory} and uses them to explain it. Some of the tools required to successfully study \gls{controltheory} such as complex numbers, the Laplace transform, and transfer functions are also described using their own \gls{DSL}s. Which parts to include in the learning material were identified in %
+\begin{modtext}
+three %
+\end{modtext}ways: asking the examining teacher in the course, %
+\begin{newtext}
+utilising team members experience with the subject %
+\end{newtext} 
+and reading the course evaluation minutes. 
 
-Other projects building on DSLsofMath have been done. One \cite{tssarbete} explored the uses of DSLs to teach (parts of) the course \course{Transforms, Signals and Systems}{Transformer, Signaler och System}{SSY080}. Some of the content taught acts as prerequisites for Control theory. Another one \cite{fysikarbete} explored DSLs for physics (more specifically classical mechanics), and resulted in the supplementary learning material ``Learn You A Physics For Great Good!'' (https://dslsofmath.github.io/BScProj2018/index.html) for the course \course{Physics for engineers}{Fysik för ingenjörer}{TIF085}.
-Since the first of these handles some of the tools required for Control theory, there will be overlap between the material described therein and our learning material. 
-\todo[color=lessurgent]{Do we want to call these ``TSS with DSls'' and ``Physics with DSLs''?}
+Other projects building on \gls{DSLsofMath} have been carried out. One project \cite{tssarbete} explores the uses of \gls{DSL}s to teach parts of the course \course{Transforms, Signals and Systems}{Transformer, Signaler och System}{SSY080}. Some of the content taught acts as prerequisites for \gls{ERE103}. The other \cite{fysikarbete} explores \gls{DSL}s for physics---more specifically classical mechanics---and resulted in the supplementary learning material ``Learn You A Physics For Great Good!'' \cite{PhysicsGit} for the course \course{Physics for engineers}{Fysik för ingenjörer}{TIF085}. Since the first of these handles some of the tools required for \gls{controltheory}, there will be some overlap between the material described therein and our learning material. 
+\begin{newtext}
+See section \ref{sec:learningmaterial} for more information on said overlap.
+\end{newtext}
 
 
 % \vspace{6pt}
@@ -56,19 +75,15 @@ Some kind of idea:
     \item Our product is this!
 \end{itemize}
 
-There have been previous projects where the approach of using DSLs has been used: one of these projects, which resulted in a BSc thesis \cite{tssarbete}, explored DSLs' uses in the course ``Transforms, Signals and Systems'' (Transformer, signaler och system SSY080 \cite{SSY080}). In this report, this project will be referred to as ``TSS with DSLs.''
-Another BSc thesis \cite{fysikarbete} examined the course ``Physics for Engineers'' (Fysik för ingenjörer TIF085 \cite{TIF085}). This will be referred to as ``Physics with DSLs.''
+There have been previous projects where the approach of using \gls{DSL}s has been used. One of these projects, which resulted in a bachelors' thesis \cite{tssarbete}, explored \gls{DSL}s' uses in the course ``Transforms, Signals and Systems'' (Transformer, signaler och system \gls{SSY080} \cite{SSY080}). In this report, this project will be referred to as ``TSS with DSLs.''
+Another bachelors' thesis \cite{fysikarbete} examined the course ``Physics for Engineers'' (Fysik för ingenjörer \gls{TIF085} \cite{TIF085}). This will be referred to as ``Physics with DSLs.''
 
-The same methods used in the aforementioned projects and course should be useful for providing supplemental learning material for the Control Theory course as well. Especially so for students with a background in functional programming. The work carried out in ``TSS with DSLs'' will be extra useful since the courses SSY080 and ERE103 share many common traits.
-
-
-
-
+The same methods used in the aforementioned projects and course should be useful for providing supplemental learning material for the \gls{controltheory} course as well. Especially so for students with a background in functional programming. The work carried out in ``TSS with DSLs'' will be extra useful since the courses \gls{SSY080} and \gls{ERE103} share many common traits.
 
 \subsection{Previous research}
-Similar problems have been identified with the course ``Transforms, Signals and Systems'' (problems that the learning material ``TSS with DSLs'' \cite{tssarbete} tried to rectify), which is a prerequisite for the previously mentioned course. Overlap with said learning material will mostly be avoided, with one exception: in order to give an introduction to the DSLs used, some basic concepts of complex numbers will be included. 
+Similar problems have been identified with the course ``Transforms, Signals and Systems'' (problems that the learning material ``TSS with DSLs'' \cite{tssarbete} tried to rectify), which is a prerequisite for the previously mentioned course. Overlap with said learning material will mostly be avoided, with one exception: in order to give an introduction to the \gls{DSL}s used, some basic concepts of complex numbers will be included. 
 
-Difficult concepts can be hard to grasp, especially in new and unfamiliar areas. To help bridge the gap you can approach the new material with familiar strategies. For computer science students this is logically done through programming. This method has been implemented in the course “DSLofMath” (DAT326) \cite{DAT326}. The purpose of the course is to ``present classical mathematical topics from a computing science perspective...'' \cite{DAT326}. This is done by implementing mathematical concepts into Domain-Specific Languages (often shortened DSLs). A DSL is a specialised language for a particular domain, in contrast to general purpose languages which are generalised across domains. There are a multitude of DSLs in the world, of which HTML, \LaTeX, and Matlab \cite{mernik_heering_sloane_2005} might be most renowned.
+Difficult concepts can be hard to grasp, especially in new and unfamiliar areas. To help bridge the gap you can approach the new material with familiar strategies. For computer science students this is logically done through programming. This method has been implemented in the course “\gls{DSLofMath}” (\gls{DAT326}) \cite{DAT326}. The purpose of the course is to ``present classical mathematical topics from a computing science perspective...'' \cite{DAT326}. This is done by implementing mathematical concepts into Domain-Specific Languages (often shortened \gls{DSL}s). A \gls{DSL} is a specialised language for a particular domain, in contrast to general purpose languages which are generalised across domains. There are a multitude of \gls{DSL}s in the world, of which HTML, \LaTeX, and Matlab \cite{mernik_heering_sloane_2005} might be most renowned.
 
 % en paragraf om didaktik här
 

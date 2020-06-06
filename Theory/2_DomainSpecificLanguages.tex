@@ -1,56 +1,68 @@
 \newcommand{\dsl}{domain-specific language}
 \subsection{Domain-Specific Languages}
-A \dsl{} (DSL) is---as opposed to a general purpose language---a language that is tailored to a specific problem domain, aiming for an ``ultimate abstraction'' \cite{techniquesforedsls,buildingdsel}, that helps improve communication \cite{fowler_parsons_2010} and often yields better solutions \cite{annotatedbibl}. Generality and domain expressiveness are largely opposing powers, where DSLs favours expressiveness \cite{mernik_heering_sloane_2005}.
-DSLs are often considered a subset of programming languages, but this notion is not generally accepted \cite{annotatedbibl,fowler_parsons_2010,dsvl}. Arguably, any language that describes a domain with more specificity than a general purpose language would, should be considered a \dsl{} \cite{dsvl}. Commonly known programmatic DSLs include \LaTeX, SQL, and HTML \cite{annotatedbibl}. In addition to these programmatic DSLs, according to some, there are other kinds of DSLs using other mediums, such as visual domain-specific visual languages (DSVL) \cite{dsvl}. %, and domain-specific natural languages \cite{fowler_parsons_2010}.
-DSVLs are often different types of diagrams and may often have an accompanying programmatic DSL \cite{dsvl}.
-In this report the term DSL is going to refer to the more generally accepted notion of a DSL as being a programming language or other executable specification language, except for when explicitly referring to DSVLs or other kinds DSLs.
+A \dsl{} (\gls{DSL}) is---as opposed to a general purpose language---a language that is tailored to a specific problem domain. It aims to provide an ``ultimate abstraction'' 
+% \cite{techniquesforedsls,buildingdsel}
+\cite[pp.~196--es]{buildingdsel} that helps improve communication \cite{fowler_parsons_2010}, and often yields better solutions to problems in their domain \cite{annotatedbibl}. Generality and domain expressiveness are largely opposing powers, where \gls{DSL}s favour expressiveness \cite{mernik_heering_sloane_2005}.
+\gls{DSL}s are often considered a subset of programming languages, but this notion is not accepted by everyone \cite{annotatedbibl,fowler_parsons_2010,dsvl}. Arguably, any language that describes a domain with more specificity than a general purpose language might be considered a \dsl{} \cite{dsvl}. Commonly known \gls{DSL}s include \LaTeX, SQL, and HTML \cite{annotatedbibl}. 
+
+In addition to these programmatic \gls{DSL}s, one could argue there are other kinds of \gls{DSL}s using other mediums, such as \gls{DSVL2}s  (\gls{DSVL}).
+\gls{DSVL}s are often different types of diagrams and may also have an accompanying programmatic \gls{DSL} \cite{dsvl}. 
+
+In this report the term \gls{DSL} refers to the more generally accepted notion of a \gls{DSL} as being a programming language or other executable specification language, except for when explicitly referring to \gls{DSVL}s or other kinds of \gls{DSL}s.
 
 
 %``DSLs trade generality for expressiveness in a limited domain.'' \cite[p.~317]{mernik_heering_sloane_2005}.
 
 
 \subsubsection{Embedded Domain-Specific Languages}\label{sec:edsl}
-%%\cite[p.123]{fowler_parsons_2010} qoute this.
 
-Implementing DSLs from scratch takes a lot of time and effort, and it is therefore common to implement them within another (general-purpose) language \cite{buildingdsel}, called a host language \cite{techniquesforedsls}. This kind of DSL is referred to as an embedded DSL (EDSL). These are relatively easy to both implement and extend \cite{[needed]}. A secondary advantage of this that the host language can exist as a sub-language to the DSL to provide general-purpose capabilities if need be \cite{annotatedbibl}.
-
-Functional languages such as Haskell are popular as host languages for their capabilities of defining custom operators, using higher-order types, and extensive overloading \cite{techniquesforedsls}.
-
-%\todo[inline,color=other]{WiP}
-In figure \ref{code:gadts_dsl}, an example of a small EDSL is presented. When the syntax of the DSL is encoded into the algebraic data type as constructors the DSL is called a deeply embedded DSL, as opposed to a shallow embedding as is shown in figure \ref{code:shallow}. Shallow embeddings do not have the same clear distinction between syntax and semantics. The usage of this DSL always instantly evaluates, since the syntax and semantics are embedded in the same structure. In contrast, a deep embedding---where the constructors encodes the structure (syntax) and the semantic evaluation separately---will determine the result of that structure at some later point in time.
-
-The native differentiation of syntax and semantics in deeply embedded DSLs maps quite well onto differentiating technical frameworks' notation and the evaluation of that structure. 
-
-There are many language features of Haskell that simplify the implementation of a embedded DSLs. %, which in conjunction with language extensions---i.e. extensions that teach/augment the compiler how to type infer or adds language constructs [Ref]---offers a strong framework for dealing with DSLs. 
-The most noteworthy extension for this project is Generalised Algebraic Datatypes, GADTs, which adds Haskell syntax that facilitates declaring algebraic data types much like one would declare a Haskell instance or class.
+Implementing \gls{DSL}s from scratch takes a lot of time and effort, and it is therefore common to implement them within another (general-purpose) language \cite{buildingdsel}, called a host language \cite{techniquesforedsls}. This kind of \gls{DSL} is referred to as an embedded DSL (\gls{EDSL}). These are relatively easy to both implement and extend as they use already established languages. 
+A secondary advantage of this is that the host language can  provide general-purpose capabilities to the \gls{DSL}, if need be \cite{annotatedbibl}.
+Functional languages such as \gls{Haskell} are popular as host languages for their capabilities of defining custom operators, using higher-order types, as well as overloading \cite{techniquesforedsls}.
 
 \begin{figure}[ht]
-    \begin{minipage}{.499\linewidth}
+\begin{subfigure}{.549\linewidth}
         \centering
         \inputminted[autogobble]{haskell}{code/data.hs}
-        \caption{Deep DSL with GADTs language extension.} 
+        \caption{Deep \gls{DSL} with \gls{GADTs} language extension.\newline}
         \label{code:gadts_dsl}
-    \end{minipage}
-    \begin{minipage}{.499\linewidth}
+\end{subfigure}
+~
+\begin{subfigure}{.449\linewidth}
+        \centering
         \inputminted[autogobble]{haskell}{code/data_no_GATDs.hs}
-        \caption{Deep addition DSL without language extensions.} 
+        \caption{Deep \gls{DSL} without language extensions.} 
         \label{code:vanilla_dsl}                    
-    \end{minipage}\par\medskip %% Adds small space between rows.
-    \begin{minipage}{.499\linewidth}
-        \inputminted{haskell}{code/class.hs}  
-        \caption{Declaring a Haskell class.} 
-        \label{code:class}
-    \end{minipage}
-    \begin{minipage}{.499\linewidth}
-        \inputminted[autogobble]{haskell}{code/shallow_dsl.hs}  
-        \caption{Shallow DSL.} 
-        \label{code:shallow}
-    \end{minipage}
+\end{subfigure}
+\begin{subfigure}{.549\linewidth}
+    \centering
+    \inputminted{haskell}{code/class.hs}
+    \caption{Declaration of a \gls{Haskell} class.\newline} 
+    \label{code:class}
+\end{subfigure}
+~
+\begin{subfigure}{.449\linewidth}
+    \centering
+    \inputminted[autogobble]{haskell}{code/shallow_dsl.hs}
+    \caption{Shallow embedding of the \gls{DSL} in \subref{code:gadts_dsl} and \subref{code:vanilla_dsl}.} 
+    \label{code:shallow}
+\end{subfigure}
+\caption{Three different implementations of a small \gls{DSL} in \gls{Haskell} are shown in figures \subref{code:gadts_dsl}, \subref{code:vanilla_dsl}, and  \subref{code:shallow}. Two of these, \subref{code:gadts_dsl} and \subref{code:vanilla_dsl}, are deep \gls{DSL}s, while the third, \subref{code:shallow}, is a shallow \gls{DSL}. Figure \subref{code:class} shows the likeness in declaration of classes and \gls{GADTs} data types.}
+\label{fig:GADTs}
 \end{figure}
 
-\noindent
-In the code in figure \ref{code:gadts_dsl} a small DSL over addition is implemented, where GADTs allows class-like syntax when declaring a new algebraic data type.
-Figure \ref{code:vanilla_dsl} shows a version of figure \ref{code:gadts_dsl} without the GADTs extension. These three snippets precisely describe the same behaviour in Haskell, but GADTs offers a type declaration syntax closer to that of type theory---making these types easily readable. 
+In figure \ref{code:gadts_dsl}, an example of a small \gls{EDSL} is presented. When the syntax of the \gls{DSL} is encoded into the algebraic data type as constructors, the \gls{DSL} is called a deeply embedded \gls{DSL}, as opposed to a shallow embedding as is shown in figure \ref{code:shallow}. Shallow embeddings do not have the same clear distinction between syntax and semantics. The usage of this kind of \gls{DSL} will always result in instant semantic evaluation, since the syntax and semantics are embedded in the same structure. In contrast, a deep embedding---where the constructors encode the structure (syntax) and the semantic evaluation separately---will determine the result of that structure at some later point in time, and may instead manipulate the syntactic structure by itself. %Different semantics may be implemented for the same syntax.
+%% Remove or expand this line.
+%%% This was moved %%%
+%\todo{Should this be moved to discussion? There are no sources for this and it is very "speculative." /T}The native differentiation of syntax and semantics in deeply embedded DSLs maps quite well onto differentiating technical frameworks' notation and the evaluation of that structure, and many domain-specific terms could be directly represented as constructors in a Haskell data type. For instance, definite integrals, line integrals, and surface integrals could be represented as three or more constructors in a data type for generalised integrals. These could then be evaluated in a number of ways, including syntactic simplification and direct semantic numeric approximation.
+
+
+There are many language features of \gls{Haskell} that simplify the implementation of embedded \gls{DSL}s. %, which in conjunction with language extensions---i.e. extensions that teach/augment the compiler how to type infer or adds language constructs [Ref]---offers a strong framework for dealing with DSLs. 
+The most noteworthy extension for this project is \gls{Generalised Algebraic Data Types} (\gls{GADTs}) which adds \gls{Haskell} syntax that facilitates declaring algebraic data types much like one would declare a \gls{Haskell} instance or class.
+
+In the code in figure \ref{code:gadts_dsl} a small \gls{DSL} over addition is implemented, where \gls{GADTs} allows class-like syntax like in \ref{code:class} when declaring a new algebraic data type.
+Figure \ref{code:vanilla_dsl} shows a version of figure \ref{code:gadts_dsl} without the \gls{GADTs} extension. These three snippets precisely describe the same behaviour in \gls{Haskell}, but \gls{GADTs} offers a type declaration syntax closer to that of type theory---making these types more easily readable. 
+
 
 %...
 %``DSL development is hard, requiring both domain and language development expertise. Few people have both.'' \cite[p.320]{mernik_heering_sloane_2005}

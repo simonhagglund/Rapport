@@ -1,5 +1,42 @@
-\section{Conclusion}
+\section{Conclusions}
 
 %Inom Slutsats/diskussion ska ett avsnitt inkluderas där gruppen reflekterar kring behovet av ytterligare kunskap och ger förslag till framtida problemställningar inom ämnet. 
 
-In this report we have presented the learning material we have developed as a supplementary aid for the Control theory course ERE103. The methodology that is used in this learning material is the use of domain specific languages and haskell which hopefully will help the students in their learning of the material. Due to time constraints the product has not been tested on any students but we have presented a strong foundation in previous science that suggest that this approach is favourable. We propose a future project can be performed that tests the effect it has on students learning. Other projects that use the same theories as we have used should also be useful and can be used to develop similar materials in either other subjects or as a continuation of our project.
+\iffalse
+In this report we have presented the learning material we have developed as a supplementary aid for the \gls{controltheory} course \gls{ERE103}. The methodology that is used in this learning material is the use of domain specific-languages(\gls{DSL}s) and \gls{Haskell} which hopefully will help the students learning the material. 
+
+Due to time constraints the product has not been tested on any students. The targeted course runs in the fall but the project took place in the spring but we have presented a strong foundation in previous research that suggest that this approach is favourable. We propose a future project can be performed that tests the effect it has on students learning. Other projects that use the same theories as we have used should also be useful and can be used to develop similar materials in either other subjects or as a continuation of our project.
+\fi
+%% list parts of the learning material
+%% maindelar ur diskussionen: 
+%% didaktik
+%% semantik/syntax
+%% paragrafuppdelning?
+
+
+%concept
+%specification
+%discussion
+%flaws & moving forwards
+
+In this report we have presented the learning material we have developed as a supplementary aid for the \gls{controltheory} course \gls{ERE103}. 
+The main idea in this learning material is the use of DSLs as a teaching aid. 
+%The methodology that is used in this learning material is use of domain-specific languages (\gls{DSL}s) and \gls{Haskell}, 
+%This is intended to help students who struggle with the more mathematical aspects of said course.
+
+The resulting material consists of four main sections; Prerequisites, the Laplace transform, Transfer functions, and Nyqvist diagrams. Each of these sections aim to rephrase complex mathematical constructs as programming exercises. The idea being that the students in question would be more familiar with this mode of thinking, and thus have an easier time understanding it.
+
+The text was written in English, and associated \gls{DSL}s were created using \gls{Haskell}. 
+English was chosen in order to reach a larger audience.
+%The choice of English was a simple case of appealing to the widest possible audience. 
+While the intended audience is primarily Swedish, producing a Swedish text creates an inherent limitation to who can read and make use of it. %An English text lacks this weakness, and since the Swedish audience should all be computer scientists, they'll be familiar enough with the English language that they shouldn't have any issues with it.
+While any programming language could theoretically create a \gls{DSL}, the familiarity of the audience was deemed a high priority, so as to keep the emphasis of the student--text interactions on the contents of the text itself, rather than on learning another language.
+
+Since no instances of the \gls{ERE103} course was held concurrently to this project, there were no opportunities to test the resulting material. \Gls{didactic} theory and the results of prior projects using \gls{DSL}s both support the effectiveness of this project. Nonetheless, it is an undesired loose end, and a future project can be performed that tests the effect it has on students learning. 
+\begin{modtext}
+A continuation of the project that completes the learning material could be useful. 
+Exploring similar domains could also yield further interesting results. 
+%Developing similar learning material using the same approach could also yield further interesting results. 
+\end{modtext}
+%Other projects that use the same approach as we have used should also be useful in developing similar material in either other subjects or as a continuation of our project.
+\todo[inline]{Do we want to do this?}

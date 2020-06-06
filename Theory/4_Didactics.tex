@@ -1,0 +1,103 @@
+\subsection{Didactics}\label{sec:didactics}
+
+During their journeys towards degrees, students will likely meet as many \gls{didactic} methodologies as they take courses. These may or may not be explicitly built on \gls{didactic} theory, but they can likely be described from a constructivistic viewpoint.
+
+In order to motivate the \gls{didactic} design choices in the learning material, this section aims to provide some \gls{didactic} background. \Glspl{didactic} is a large area of study% 
+\begin{newtext}
+, trying to cover even a significant part would require a Herculean effort.
+\end{newtext}
+\begin{modtext}
+However, a few central ideas for this project will be presented. 
+\end{modtext}
+%that we 
+%\begin{modtext} 
+%cannot 
+%\end{modtext}
+%hope to cover in its entirety in this report but we will present a few central ideas that are relevant to our project. 
+With this in mind it is important to realise that the 
+\begin{modtext}
+the didactic theory has been chosen to fit the project. There are other theories that might
+%information we present will be biased to fit our projects and that there are other theories that might 
+have radically different views of learning than what is presented here. As this project is not intended to be any sort of overview of didactic theory, they will not be covered.
+\end{modtext}
+%not agree with what we present.
+
+\subsubsection{Teacher provided support}\label{sec:scaff}
+Common for all well executed courses and other learning environments is that they have predefined instrumental scaffolding. Scaffolding can be thought of as the means by which a student leverages their own ability to understand, until such support is no longer required and the learner can achieve results independently. 
+
+There are two types of instrumental scaffolding, social and cognitive, which act as supporting structure for learners. These structures are created by the teacher, and can be considered temporary. They are meant to aid students reach a deeper understanding than they could have done by themselves \cite{linder_2006}. Depending on the subject, instrumental scaffolding is often implemented as a mix of both social scaffolding and cognitive scaffolding. Social scaffolding is the scaffolding that is created when a group works together to solve a problem. Cognitive scaffolding is well described as a series of related tasks that incrementally improves the learners knowledge \cite{linder_2006}.
+
+Instrumental scaffolding is an application of the Zone of Proximal Development (\gls{ZPD}), which aims to describe the learning settings where the student learns most optimally \cite{vygotski_1978}. When a learner tries to understand a new subject such as a course---according to \gls{ZPD}s creator Vygotski---there is only so much a learner can achieve alone without support. \gls{ZPD} is a learning tool which describes learning as different regions, where \gls{ZPD} is the region between the current ability of the learner and what the learner can achieve given the right scaffolding and with help of their peers or mentors enabling them to reaching beyond their own ability \cite{vygotski_1978}. The zone that would describe what the learner currently can achieve consist only of what the student currently understands, i.e.
+the student's prior knowledge from other subjects. 
+
+\subsubsection{Constructivism}
+Constructivism is a school of thought in didactics which emphasises that learners construct knowledge themselves \cite[s.~48]{imsen_2005}.  
+
+\begin{modtext}
+According to Talis, a recurring study done by the organisation OECD, among other \cite{talis_2014},\end{modtext} 
+teachers working in Sweden adhere more to constructivism than those from other participating countries.  Teachers in Sweden differ in that they to a higher degree view their role as a mentor, as someone who facilitates the learning environment rather than a someone that transfers their knowledge \cite{talis_2014}. According to constructivism, this is the role of any teacher. Teachers in Sweden rarely check their students' exercise books, and would rather try to find a real world example to get their points across \cite{talis_2014}, which also fits well into constructivism. O'Loughlin have quite strong explanatory wording as to why teachers accept this theory: 
+
+\blockquote{The power of the image lies in the contrast between the passive, powerless learner in the traditional approach, and this 
+image of an active, constructive knower, empowered to take charge of his or her own learning. [...] [C]onstructivism makes a strong appeal to our commonsense understanding of how learning ought to be. \cite[p.~792]{oloughlin_2007}}.
+
+It's important to regard the mindset of the teachers in Sweden when producing a learning material for the product of their work, the students of \gls{ERE103}.
+
+Constructivism began branching off from psychology in the 1860s, but solidified early in the last century. It's a large field of study. One of its prominent figureheads, Piaget, coined the terms assimilation and accommodation. The expressions classify two different experiences any student has while learning a new subject. 
+
+Assimilation refers to the experience a learner has when realising that a concept that they are trying to learn follows the same pattern as a concept they have already understood \cite[p.~283]{imsen_2005}. This results in a framing of new knowledge within a preexisting concept. For example if a learner is trying to learn multiplication while already understanding addition, the student might realise that multiplication is the same as adding multiple times. This experience is called assimilation. 
+
+Accommodation on the other hand refers to when a learner realises that new knowledge does not fit within any preconceived pattern or concept \cite[p.~284]{imsen_2005}. They must then instead construct a new concept in which the new knowledge fits. Take for example operator precedence: it is infeasible to understand the precedence of operators from addition and multiplication, since they are based on different conventions. In this case when the student has the realisation of operator precedence, and this experience is what is called accommodation.
+
+Hadjerrouit has researched constructivism in software engineering and developed a framework of questions to ask when designing education \cite{hadjerrouit2005}. In the context of this project 
+two of these are relevant to ask:
+%there are two relevant questions to ask: 
+\begin{enumerate}
+    \item Which knowledge needs to be connected?
+    \item Which skills are needed to connect knowledge?
+\end{enumerate}
+
+In this project the answer to the first question is that the concepts in \gls{controltheory} needs to connect with the students existing knowledge in \gls{Haskell} and programming. It aids the students in building new knowledge by relating it to the same concepts in \gls{Haskell}, in constructivistic terms assimilating control theory concepts by leveraging their existing understanding of \gls{Haskell} concepts.
+
+\begin{newtext}
+The answer to the second question is that %
+\end{newtext}
+a necessary skill in \gls{controltheory} is being able to distinguish between the notation and the meaning the notation carries. In Haskell this same difference is the difference between syntax and semantics. Understanding this difference can be achieved by creating syntactic representations in \gls{Haskell} which maps one to one with notation in \gls{controltheory}, while keeping the semantics of \gls{controltheory}. Thus they can accommodate the semantics, and when further studying the literature on \gls{controltheory} they can further assimilate the syntax of the field. More concretely, knowledge is constructed by using the learners prior knowledge as a foundation by showing the student how to construct a \gls{DSL}, which will hopefully aid the students to construct new knowledge.
+
+In conclusion, constructivism dictates that knowledge needs to be related and integrated into knowledge structures that can be retrieved at any time in order to be useful for problem solving. 
+
+%------------------------------------------------
+%
+%
+%\begin{enumerate}
+%    \item Prerequisite skills, skills needed to enter the field.
+%    \item Specific skills, skills needed to perform key tasks in the field.
+%\end{enumerate}
+%
+%\textbf{Point of this section}: Present theory about that math and sience mostly relies on Piaget Constructivism and CS on Vygotsky.\textbf{end goal}: Claim that this project bridges the constructivism of Math \& Sience and CS, making it easier to for CS students.
+
+
+
+%Constructivism is a set of ideas describing how a person internalises knowledge. The basic idea is that a person constructs their knowledge, as contrasted with classical teacher-based education where a teacher gives a student knowledge.
+
+
+%Constructivism invariably details an epistemology (a model of what knowledge is) and gives some explanations about how to construct such knowledge. There are different versions of constructivism, and most new science in the field supports the old ideas. As it is an old theory with a wealth of supporting evidence\todo[color=other]{Is this true?}, there is widespread acceptance of constructivism. However, the mode of learning differs between different constructive theories. \cite[pp.~51--53]{imsen_2005}
+
+%In any didactic context constructivism is somewhat of a buzzword, aiming to explain the process of learning according to some epistemology, what knowledge is, new science in the field for the most part confirms or support the old ideas, and as such there is widespread acceptance of constructivism, but the flavour of constructivism may differ\cite[p.51-53]{imsen_2005}. 
+
+
+%%The epistemological ideology of constructivism differs substantially from any common view, since mostly everyone lives as realists---the chair is a chair because I can see it---% maybe "because of its inherent quality of being chair"? Get's really weird when discussing epistemology...
+
+
+%%constructivism must accept a contrary position where our senses does not have any inherent order or structure other than the description we give them by some social convention or alike. Knowledge does not depend on the actual phenomena in the world, but is rather a construct of the learner or teacher \cite[p.~49]{imsen_2005}. The epistemological perspective that knowledge is nothing else than constructed, dictates that the pedagogy and tools provided must engage the students or, as O'loughlin said: 
+
+%\todo[color=lessurgent]{Describe what assimilation and accomodation are?}
+
+
+ %The CS programs didactic methodology is frequently akin to a sociocultural constructivism with assignments solved by a group and task designed not forthmost to widen knowlage of a framework but to infer in the students high- and low level skills \cite{jenkins_2001} i.e. conceptualisation of solutions to problems \& correctly write programs, whereas hard sciences corresponding environment is well described by constant cycle of assimilation and accommodation.
+ 
+ %%This act of constructing is the corner stone of the pedagogy and the primary tool by which students learn, according to constructive didactics. % did I butcher the sentence? Is it still saying what it's supposed to?
+
+%Typically, the \gls{didactic} systems used in computer science education is well depicted by sociocultural constructivism, where assignments are solved by a group and tasks are designed more to teach the students high- and low level skills such as conceptualisation and how to correctly write programs rather than to widen knowledge of a particular way of doing things in a subject such as mathematics \cite{jenkins_2001}. 
+%Contrarily, the educational strategies typically employed in \gls{ERE103} is better described by constant cycles of assimilation and accommodation.
+
+%Teaching programming is entangled with much difficulty, ... but this is stuff that CS students learn with much ado. ect.

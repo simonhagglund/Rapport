@@ -1,4 +1,28 @@
 \section{Process}\label{sec:process}
+%Previously, some different ideas about how to present mathematical theory have been mentioned. 
+%The learning material has been created according to the following principles. \todo{Något annat ord än principle?}
+
+
+%Some proposed ideas to help communicate mathematics are to explicitly state the types included in expressions and to distinguish between syntax and semantics \cite{wells1995communicating}. Furthermore, using \gls{DSL}s to help understanding has also been proposed \cite{dslsofmath}\todo{Bättre med \cite{Ionescu_2016}?}.
+
+% the first main idea it's built on is this, and here's an example from the learning material: 
+
+
+%\todo{Do we want something more about \gls{didactic}s? This is a bit short and... intetsägande.}
+
+%\todo[inline]{Do we want to mention that we wrote the learning material in \LaTeX{}?}% \todo[inline]{Syntax och semantik kan särskiljas med GADTs, see section \ref{sec:edsl}.}
+% \todo[inline]{Koppla uppbyggnaden av läromaterialet till didaktiska teorin.}
+% \todo{Skrev i latex, kanske}
+
+The learning material is developed based on a product specification created to fit the aims of the project. 
+%The theories presented in sections \ref{sec:theory} and \ref{sec:didactics} are
+\begin{modtext}
+The theory presented in section \ref{sec:theory} is
+\end{modtext}
+used to construct the learning material in an appropriate form.
+
+
+
 \iffalse
 The first step in our process was to set apart the first few weeks for study purposes. The team believed this would help minimise errors later in the process as well as improve flow. In addition, contact was established with teachers in order to pin down which parts of the course students struggled with the most. This would allow the team to narrow the scope of the project and ensure the most critical areas were adequately covered.
 
@@ -50,29 +74,23 @@ Metodbeskrivningen förankras vanligen i metodlitteratur.
 Detta är typiskt ett avsnitt som uppdateras under arbetets gång
 \fi
 
+The learning material should have certain properties. Its purpose is to work as a learning material for students of the course \gls{ERE103}. 
+The learning material should not act as a replacement of the course book but instead be a supplementary material that offers a different approach to learning \gls{controltheory} and provide a perspective more familiar to computer science students, in order to ease the transition between the subjects.
+
+The learning material should accomplish this by constructing \gls{DSL}s for different areas of \gls{controltheory}. Some, but not all, code should be presented and explained in the text. The programming language used should be \gls{Haskell}. \gls{GADTs} should be used. The text should not use very formal language but instead be light and use pictures to be more easily digestible for the reader. The text should have examples and exercises.
+
+As it is a large and difficult course as established in section \ref{backgroundERE} it should not be expected that this learning material will be able to cover the entirety of the material covered in the course, or even the majority of it. As such the material should focus on the initial areas of the course, including some prerequisite knowledge. 
 
 
 
-The core goal of this project was to create supplementary learning material for a course in Control Theory (course code ERE103 \cite{ERE103}). Meaning, the project is not meant to replace any existing material. Rather, it is meant to provide a perspective more familiar to Computer Science students, in order to ease the transition between the subjects.
 
 
-
-%% A method with a similar purpose has already been made in the form of DSLsofMath \cite{DAT326}, which sought to bridge the gap between programming and mathematics by rephrasing math as a custom built programming language; a so-called ''Domain-Specific Language'' (DSL).% is this excessive?  %% This is Background, move or remove
-As mentioned in the introduction, the project aims to emulate the success of DSLsofMath \cite{DAT326} by creating 'DSLs of Control Theory' using Haskell as a basis. The choice of Haskell is due to it being Chalmers' and Gothenburg University's functional programming language of choice, making it the functional language that students are most likely to already be familiar with.
-
-In addition and perhaps more importantly, a text was written to explain the languages and their uses, completing the bridge between the subjects.
-
-Further, as a learning tool, the correctness and professionality of the text is secondary to its educational value. The text aims to be light, digestible, and `fun'. Integration of common teaching techniques, such as examples and exercises, were encouraged. We tried to keep jargon to a minimum, and any required knowledge not covered in the text were given referrals to other sources.
-
-%% Projects in this style have happened at least twice in the past \cite{fysikarbete,tssarbete}. Thus, it is also likely to happen a fourth time. With this in mind, there was a secondary goal of ensuring as good documentation of the process and methods used as possible in order to aid future groups doing similar projects. % Is this background?
-
-A secondary goal, subject to time restraints, was to turn the learning material into a website. As websites can be more interactive than just text, turning the learning material into a website can enable the exercises to take answers as input. This can activate the student and help further learning. 
 
 \subsection{Delimitations}\label{sec:delimitation}
-Control Theory is a large subject. As such, trying to create a comprehensive guide to the entire subject would risk limiting the quality of each individual concept. Therefore, an early part of the project was to analyse which concepts of Control Theory to focus the team's efforts on. %nice
+Control Theory is a large subject. As such, trying to create a comprehensive guide to the entire subject would risk limiting the quality of each individual concept. Therefore, an early part of the project was to analyse which concepts of \gls{controltheory} to focus the team's efforts on. %nice
 
 
-Using feedback from staff, records of prior exams, as well as the team's own experiences of the subject, subject areas were established and analysed. The analysis included, in a rough order of importance, which subjects students frequently struggled with, which concepts could be effectively described using DSLs, and which other didactic techniques could be employed.
+Using feedback from staff, records of prior exams, as well as the team's own experiences of the subject, subject areas were established and analysed. The analysis included, in a rough order of importance, which subjects students frequently struggled with, which concepts could be effectively described using \gls{DSL}s, and which other \gls{didactic} techniques could be employed.
 
 Ultimately, five subject areas were chosen for further work:
 \begin{itemize}
@@ -80,14 +98,57 @@ Ultimately, five subject areas were chosen for further work:
     \item Basic Control Theory
     \item Laplace Transform
     \item Transfer Functions
-    \item Nyqvists theorem of stability
+    \item Nyquist criterion of stability
 \end{itemize}
 
-Prerequisites and Basic Control Theory are both rundowns of multiple smaller subjects that should provide little issue but are nontheless important to bring up. Laplace, Transfer Functions and Nyqvist are larger and more difficult subjects that were deemed worthy of their own dedicated sections.
+Prerequisites and Basic Control Theory are both rundowns of multiple smaller subjects that should provide little issue but are nonetheless important to bring up. Laplace, Transfer Functions and Nyquist are larger and more difficult subjects that were deemed worthy of their own dedicated sections.
 
 There was also a plan to include a section covering Bode diagrams. However, due to time constraints, it had to be cut.
 
-TODO: Subsection about testing(if it happens)
+\begin{newtext}
+As previously discussed in section \ref{intro}, there is overlap between the content covered in the learning material and previous projects.
+One such project, henceforth ``TSS with DSLs,'' used a similar approach to teach the course \course{Transforms, Signals and Systems}{Transformer, Signaler och System}{SSY080} and was an important inspiration for this project. ``TSS with DSLs'' created \gls{DSL}s for, among others, complex numbers, signals and LTI systems. %are all covered by a previous project (which will be called ``TSSwithDSLs''\cite{tssarbete};
+As these subjects were to be included in the learning material, the choice whether to use the already developed \gls{DSL}s or to develop new ones had to be taken. 
+New \gls{DSL}s were developed for all these domains, and the \gls{DSL} for complex numbers was used as a dependency for the \gls{DSL} for the Laplace transform. 
+%however, many of the implementations did not suit the intended approaches in the learning material. 
+Similarly, \gls{DSLsofMath} develops a \gls{DSL} for complex numbers, which is not used in the learning material. 
+See section \ref{sec:discussion} for more information on the choice to make new \gls{DSL}s instead of using the previously developed ones.
+%Similarly, complex numbers and the Laplace transform is described by ``DSLsofMath,'' \cite{dslsofmath} but the approach taken there was not what was envisioned in this project. Thus all of the \gls{DSL}s for these subjects were implemented from scratch, with one exception: the \gls{DSL} for complex numbers developed in a previous project \cite{tssarbete} was used alongside the one developed from scratch in the learning material; see section \ref{sec:discussion}.% The reason that \gls{DSL} was adapted but not others was due to it being more developed than the one described in the learning material, and since complex numbers was used as a dependency and not the main focus, this complexity was acceptable. \todo{Is this too much?}
+\end{newtext}
+
+\subsection{Implementation}
+The clearest example of how some of the ideas presented in section \ref{sec:theory} and section \ref{sec:didactics} were used to create the learning material is the usage of \gls{GADTs}. In figure \ref{code:expression_gadts} there is an example from the learning material of how the \gls{GADTs} help emphasis the types. %For an example on how \gls{GADTs} allows for this distinction, see figure \ref{code:gadts_comparison}. 
+The figure contains two (abbreviated) versions of the \cmd{Expression} datatype from the learning material. For the sake of space and ease of reading, \cmd{Expression} has been shorted into \cmd{Expr} and some lines have been removed.
+In \ref{code:expression_vanilla} we see that the datatype has been declared by listing the different constructors for \cmd{Expr}. 
+However, the types might not be apparent. 
+\begin{modtext}
+Interpreting them as different patterns on how to create \cmd{Expr}s is one way to understand them. For example, \cmd{Const} can be interpreted as for something of type x, \cmd{Const x} is of type \cmd{Expr x}. Another example is that given two expressions of type \cmd{Expr x}, adding them by putting \cmd{:+:} between them creates a new expression of type \cmd{Expr x}. 
+\end{modtext}
+The types should be stated explicitly, however. Implementing the datatype using \gls{GADTs} allows for explicit typing, see \ref{code:expression_gadts}.
+For example, we can see that \cmd{Const} takes something of type x and returns something of type \cmd{Expr x}, just like interpreted above. 
+
+\begin{figure}[H]
+    \begin{subfigure}{0.999\textwidth}
+    \centering 
+    \inputminted[autogobble]{haskell}{code/expression_no_gadts.hs}
+    \caption{Definition of \cmd{Expr} data type without using \gls{GADTs}. This is done by listing different constructors for the datatype with their parameters filled in, e.g. \cmd{Const a} and \cmd{Expr x :+: Expr x}, which construct expressions representing the constant function and a sum of two expressions, respectively. Note that the types of the different constructors are not explicit, possibly requiring interpretation to understand.}
+    \label{code:expression_vanilla}
+    \end{subfigure}  
+    \begin{subfigure}{0.999\textwidth}
+    \vspace{12pt} % nödlösning för att fixa spacingen
+    \centering
+    \inputminted[autogobble]{haskell}{code/expression_gadts.hs}
+    \caption{Defintion of \cmd{Expr} data type using \gls{GADTs}. This is done by listing the different constructors (without parameters) and their respective types, e.g. \cmd{Const} and \cmd{(:+:)} are two functions of types \cmd{a -> Expr x} and \cmd{Expr x -> Expr x -> Expr x}, respectively. In this case, the types are explicit and thus likely require less interpretation.}
+    \label{code:expression_gadts}
+    \end{subfigure} 
+    \caption{Comparison of \cmd{Expr} datatype with and without \gls{GADTs}.}
+    \label{code:gadts_comparison}
+\end{figure}
+
+Another main idea that the learning material is built on is the development of \gls{DSL}s as a learning tool. For example, a \gls{DSL} to describe Linear Time-Invariant (\gls{LTI}) Systems is created, consisting of a datatype and functions between them. Explicitly building the language step-by-step is a way to help the student build an understanding of the \gls{DSL}. The DSLs were developed by identifying the function declarations. This is done by starting with a very basic case of the \gls{DSL} like \cmd{Id} and then continuing building on it and making sure it all works together. 
+
+In order to help learning, the learning material is built using constructivistic ideas. The idea of assimilation is especially used when we connect the students previous knowledge of \gls{Haskell} through aforementioned building of \gls{DSL}s. As this is a supplementary learning material we believe it will often function in an didactically accommodating way. For example a student may learn about the shift function in the main course but not fully understand it, but when they read about it again from another perspective in our learning material they have the opportunity to relate the shift function to other prior knowledge and understand it.
+
 
 %In order to conform to the project size, a selection of subject areas had to be done. Subject areas were chosen based on (in a rough order of priority) which concepts students frequently struggle with, which concepts can be effectively and accurately described using DSLs\cite{DAT326}, and which concepts can be effectively visualised and/or illustrated. 
 %The reasoning behind this priority was that the most important part were to find topics that, if taught well, would help students understand what they otherwise would not, and the chosen topics should be fit to teach using DSLs. % add something about why visualisation 
